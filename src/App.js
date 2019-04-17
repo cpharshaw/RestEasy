@@ -4,8 +4,9 @@ import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Map from "./components/Map";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
@@ -46,6 +47,7 @@ class App extends Component {
               : <button onClick={signInWithGoogle}>Sign in with Google</button>
           }
         </header>
+        <Map/>
       </div>
     );
   }
