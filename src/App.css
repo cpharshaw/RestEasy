@@ -23,11 +23,18 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.login-button {
+  border-radius: 11.5px;
+  width: 80%;
+}
+
+
+.login-logo {
+  border-radius: 11.5px;
+}
+
+body {
+  background: whitesmoke;
 }
