@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.9.4",
+    "firebaseui": "^3.5.2",
+    "google-maps-react": "^2.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "react-star-rating-component": "^1.4.1",
+    "react-with-firebase-auth": "^1.0.2",
+    "save": "^2.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
