@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import './style.css';
 
 import CurrentLocation from './CurrentLocation/CurrentLocation';
 

@@ -1,0 +1,5 @@
+.reviewPage {
+  margin-top: 65px;
+  height: calc(100vh - 130px);
+  background: red;
+}
