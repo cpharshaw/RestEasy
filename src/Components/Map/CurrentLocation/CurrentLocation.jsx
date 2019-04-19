@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './currentlocation.css';
+// import * as mapStyles from './currentlocation.css';
 
-const mapStyles = {
-    map: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%'
-    }
-};
+// const mapStyles = {
+//     map: {
+//         position: "absolute",
+//         top: "65px",
+//         width: '100%',
+//         height: 'calc(100vh - 130px)'
+//     }
+// };
 
 export class CurrentLocation extends React.Component {
     constructor(props) {
@@ -98,10 +101,11 @@ export class CurrentLocation extends React.Component {
         });
       }
       render() {
-        const style = Object.assign({}, mapStyles.map);
+        // const style = mapStyles.map;
        return (
          <div>
-           <div style={style} ref="map">
+           <div className="map" ref="map">
+           {/* <div style={style} ref="map"> */}
              Loading map...
            </div>
            {this.renderChildren()}
