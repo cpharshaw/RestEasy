@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 .map {
@@ -5,4 +6,11 @@
   top: 65px;
   width: 100%;
   height: calc(100vh - 130px)
+=======
+.map {
+  position: absolute;
+  /* top: 50px; */
+  width: 100%;
+  height: calc(100vh - 110px)
+>>>>>>> dce2bb652e3ba732a07cadf6c3a138b481d9857c
 }
