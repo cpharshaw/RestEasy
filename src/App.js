@@ -4,18 +4,17 @@ import './App.css';
 import Login from './Components/Login';
 import Review from './Components/Review';
 import Map from './Components/Map';
-import CraigHeader from './Components/CraigHeader';
-import CraigFooter from './Components/CraigFooter';
-
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 class App extends Component {
   render() {
 
     return (
       <div>
-        < CraigHeader />
+        < Header />
         < Map />
-        < CraigFooter />
+        < Footer />
         {/* < br /> */}
         {/* < Map /> */}
       </div>
