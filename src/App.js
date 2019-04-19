@@ -10,9 +10,10 @@ class App extends Component {
 
     return (
       <div>
-        < Login />
-        < br />
-        < Map />
+        
+        < Review />
+        {/* < br /> */}
+        {/* < Map /> */}
       </div>
     )
   }
