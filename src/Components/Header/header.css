@@ -6,3 +6,7 @@
     /* height: 65px; */
     /* background: blue; */
   }
+
+  .form-inline .form-control {
+    width: 100%;
+  }

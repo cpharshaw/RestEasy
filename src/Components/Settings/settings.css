@@ -1,0 +1,23 @@
+.user-image {
+    width: 100px;
+    height: 100px;
+}
+
+.title-image {
+    width: 600px;
+    height: 100px;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.home-button {
+    padding: 0;
+    margin-bottom: 10px;
+
+}
+
+#about-button {
+    margin-bottom: 5px;
+}
