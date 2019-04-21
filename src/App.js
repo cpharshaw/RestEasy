@@ -6,17 +6,22 @@ import Review from './Components/Review';
 import Map from './Components/Map';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Settings from './Components/Settings'
+import Button from 'react-bootstrap/Button';
+
+
+
 
 class App extends Component {
   render() {
 
     return (
       <div>
+        {/* < Settings /> */}
         < Header />
         < Map />
         < Footer />
-        {/* < br /> */}
-        {/* < Map /> */}
+        
       </div>
     )
   }
