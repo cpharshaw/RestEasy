@@ -6,3 +6,22 @@
     /* height: 65px; */
     /* background: green */
   }
+
+  .a {
+    height: 200%;
+    width: 200%;
+  }
+
+  img {
+    height: 25px;
+    width: 60px;
+  }
+
+  .nav-fill .nav-item {
+    flex: 1;
+  }
+
+  Link {
+    padding: 0;
+    margin: 0;
+  }
