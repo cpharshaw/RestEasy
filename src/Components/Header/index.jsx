@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
-import './header.css';
+// import './header.css';
+// import './SearchBox';
 
-export class index extends Component {
+// import SearchBar from './SearchBox';
+
+export class Header extends Component {
   render() {
     return (
       <div className="header">
-        <nav class="navbar navbar-dark bg-dark justify-content-center">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </nav>
+        {/* <nav className="navbar navbar-dark bg-dark justify-content-center">
+          <form className="form-inline"> */}
+            {/* <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input> */}
+            {/* < SearchBar /> */}
+            This is craig
+            {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
+          {/* </form>
+        </nav> */}
       </div>
 
     )
   }
 }
 
-export default index
+export default Header;
