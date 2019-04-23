@@ -1,0 +1,98 @@
+
+
+p, a, span {
+  /* font-size: 85%; */
+}
+
+.login-body {
+  overflow-y: hidden;
+
+}
+
+.headline-wrapper {
+
+  background: whitesmoke;
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 11.5px;
+  border-bottom-left-radius: 11.5px;
+  /* min-width: 325px; */
+  width: 85vw;
+  opacity: .925;
+  box-shadow: 1px 2.5px 15px whitesmoke;
+
+}
+
+
+#brand {
+  color: #44aacc;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.login-logo {
+  /* object-fit: cover; */
+  width: 300px;
+  height: 300px;
+  border-radius: 11.5px;
+  opacity: .925;
+  box-shadow: 1px 2.5px 15px whitesmoke;
+}
+
+
+.login-button {
+  border-radius: 11.5px;
+  min-width: 275px;
+  max-width: 80%;
+  height: auto;
+  opacity: .90;
+  box-shadow: 1px 2.5px 15px whitesmoke;
+}
+
+.tos {
+  /* width: 80%; */
+}
+
+.spacer {
+  /* visibility: hidden;
+  height: 2vh; */
+}
+
+
+
+
+.headline-box {
+  position: absolute;
+  margin: 0 auto;
+
+  top: 5vh;
+  left: 0;
+  right: 0;
+  /* background: red; */
+}
+
+.logo-box {
+  position: absolute;
+  margin: 0 auto;
+
+  top: 23vh;
+  left: 0;
+  right: 0;  
+  
+  /* background: blue; */
+}
+
+.login-box {
+  position: absolute;
+  /* width: 100vw; */
+  top: 67.5vh;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  /* background: green; */
+}
+
+.btn {
+  font-size: 19px;
+}
+

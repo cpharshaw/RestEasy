@@ -1,5 +1,29 @@
 .reviewPage {
-  margin-top: 65px;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0; 
+
   height: calc(100vh - 130px);
-  background: red;
+  height: 100%;
+  /* background: red; */
+
+}
+
+
+
+
+.h-fit-content {
+  height: fit-content;
+}
+
+
+.mid {
+  vertical-align: middle;
+}
+
+
+textarea {
+  border: 0.5px solid grey;
+  padding: 5px;
 }

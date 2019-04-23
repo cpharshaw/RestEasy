@@ -1,14 +1,15 @@
 
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
+
 import Login from './Components/Login';
-import Review from './Components/Review';
-import Map from './Components/Map';
 import Header from './Components/Header';
+import MapWithASearchBox from './Components/MapWithASearchBox';
+import Review from './Components/Review';
 import Footer from './Components/Footer';
+
 import Settings from './Components/Settings'
 import Button from 'react-bootstrap/Button';
-// import Search from './Components/Search';
 
 
 
@@ -18,15 +19,21 @@ class App extends Component {
 
     return (
       <div>
-        {/* < Settings /> */}
-        < Header />
-        < Map />
-        < Footer />
-        {/* < Search /> */}
-
-        
+        {/* <Header /> */}
+        <MapWithASearchBox />
+        <Footer />
       </div>
     )
+    {/*  <div>
+        < Settings /> *
+         <Header/> *
+              <Login/>
+
+         < MainApp /> *
+         <Review/> *
+         <Footer/> 
+      </div>*/}
+
   }
 }
 

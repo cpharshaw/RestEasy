@@ -1,7 +1,6 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
-
 
 
 .App-header {
@@ -21,18 +20,9 @@
 
 
 
-.login-button {
-  border-radius: 11.5px;
-  width: 80%;
-}
-
-
-.login-logo {
-  border-radius: 11.5px;
-}
 
 body {
-  background: whitesmoke;
+  /* background: whitesmoke; */
 }
 
 
