@@ -9,6 +9,7 @@ import Settings from './Components/Settings'
 import Map from './Components/Map';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+// import Search from './Components/Search';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (

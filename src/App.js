@@ -8,6 +8,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Settings from './Components/Settings'
 import Button from 'react-bootstrap/Button';
+// import Search from './Components/Search';
 
 
 
@@ -21,6 +22,8 @@ class App extends Component {
         < Header />
         < Map />
         < Footer />
+        {/* < Search /> */}
+
         
       </div>
     )

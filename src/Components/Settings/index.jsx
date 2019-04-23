@@ -21,8 +21,8 @@ export class index extends React.Component {
     return (
       <div>
         < Header />
-        <div class="jumbotron jumbotron-fluid text-center">
-          <img src="title-rest-easy.jpg" alt="title" class="title-image"></img>
+        <div class="jumbotron jumbotron-fluid text-center p-4">
+          <img src="title-rest-easy.png" alt="title" class="title-image"></img>
           <br></br>
           <br></br>
           <img src="user-settings.png" alt="Logo" class="user-image rounded-circle border border-dark"></img>
