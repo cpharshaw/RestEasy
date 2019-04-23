@@ -10,6 +10,7 @@ import Settings from './Components/Settings'
 import MapWithASearchBox from './Components/MapWithASearchBox';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+// import Search from './Components/Search';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
