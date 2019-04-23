@@ -11,14 +11,67 @@
   } */
 
 
-  /* .mapSizing {
-    top: 65px;
-    left: 0;
-    right: 0; */
-    /* bottom: 65; */
-    /* position: absolute;
-    height: calc(100vh - 130px);
-  } */
+
+.loadingElement {
+  height: 100%;
+}
 
 
-  /* https://tomchentw.github.io/react-google-maps/#installation */
+.containerElement {
+  position: fixed;  
+  top: 0;
+  left: 0;
+  right: 0; 
+
+  height: 100%;
+  height: calc(100vh - 50px);
+  /* z-index: 100; */
+} 
+
+
+.mapElement {
+  height: 100%;
+}
+
+
+.searchInput {
+  position: relative;
+  margin-top: 20px;
+  opacity: .85;
+  /* top: 0; */
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  /* margin-top: -27px; */
+  /* padding: 0 12px; */
+  border-radius: 11.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+/* .searchBox { */
+  /* position: absolute;
+  margin-top: -65px;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  outline: none;
+  text-overflow: ellipses;
+  z-index: 100; */
+/* } */
+
+
+
+/* https://tomchentw.github.io/react-google-maps/#installation */

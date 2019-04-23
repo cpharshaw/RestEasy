@@ -3,7 +3,6 @@
 }
 
 
-
 .App-header {
   /* background-color: #282c34; */
   /* min-height: 100vh; */
@@ -21,18 +20,9 @@
 
 
 
-.login-button {
-  border-radius: 11.5px;
-  width: 80%;
-}
-
-
-.login-logo {
-  border-radius: 11.5px;
-}
 
 body {
-  background: whitesmoke;
+  /* background: whitesmoke; */
 }
 
 
