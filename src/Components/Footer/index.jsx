@@ -26,13 +26,13 @@ export class index extends Component {
 
           <div className="col-sm-2 offset-1 linkBox text-center">
             <Link className="" to='/'>
-              <i className="fas fa-map fa-2x"></i>
+              <i className="fas fa-map fa-lg"></i>
             </Link>
           </div>
 
           <div className="col-sm-2  linkBox text-center">
             <Link className="" to='/'>
-              <i className="fas fa-map-marker-alt fa-2x"></i>
+              <i className="fas fa-map-marker-alt fa-lg"></i>
             </Link>
           </div>
 
@@ -42,13 +42,13 @@ export class index extends Component {
 
           <div className="col-sm-2  linkBox text-center">
             <Link className="" to='/'>
-              <i className="fas fa-plus fa-2x"></i>
+              <i className="fas fa-plus fa-lg"></i>
             </Link>
           </div>
 
           <div className="col-sm-2  linkBox text-center">
             <Link className="" to='/'>
-              <i className="fas fa-bars  fa-2x"></i>
+              <i className="fas fa-bars  fa-lg"></i>
             </Link>
           </div>
 

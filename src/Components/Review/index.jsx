@@ -93,39 +93,41 @@ export class Review extends Component {
 
       <div className="container reviewPage">
         <div className="row">
-          <div className="col-sm-12 mt-4">
+          <div className="col-sm-12 mt-3">
+
 
             <div className="row">
               <div className="col-sm-12">
 
                 <form className="">
-                  <div className="form-group">
-                    <label for="">Location Name</label>
-                    <input type="text" className="form-control" placeholder="Enter location Name" />
+                  <div className="d-flex flex-column mb-3">
+                    <label className="">Location Name</label>
+                    <input id="locName" type="text" className="form-control p-1 rounded" placeholder="Enter location Name" />
                   </div>
-                  <div className="form-group">
-                    <label for="">Address</label>
-                    <input type="text" className="form-control" placeholder="1500 Market Street, Philadelphia, PA 19102" />
+                  <div className="d-flex flex-column mb-3">
+                    <label className="" >Address</label>
+                    <input id="locAddr" type="text" className="form-control p-1 rounded" placeholder="1500 Market Street, Philadelphia, PA 19102" />
                   </div>
-                  <div className="form-group">
-                    <label for="">Location Description</label>
-                    <input type="text" className="form-control" placeholder="Near checkout counter"/>
+                  <div className="d-flex flex-column mb-3">
+                    <label className="" >Location Description</label>
+                    <input id="locDesc" type="text" className="form-control p-1 rounded" placeholder="Near checkout counter" />
                   </div>
                 </form>
 
               </div>
             </div>
 
-            <div className="row ">
+
+            <div className="row mt-1">
               <div className="col-sm-12">
 
                 <div className="row">
 
-                  <div className="col-sm-12">
-                    <p className="h6">About Bathroom</p>
+                  <div className="col-sm-12 ml-1">
+                    <p className="">About Bathroom</p>
                   </div>
 
-                  <div className="col-sm-12">
+                  <div className="col-sm-12 ml-1">
 
                     <div className="row">
                       <div className="col-sm-12">
@@ -149,17 +151,13 @@ export class Review extends Component {
                     </div>
 
 
-                    <textarea className="w-100 mt-3" rows="4">
-                      At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
-                    </textarea>
+                    <textarea className="w-100 mt-3 rounded border-1" rows="3" placeholder="Describe your experience and/or observations." />
 
-
-
-                    <div className="row mt-3">
+                    <div className="row mt-2">
                       <div className="col-sm-12">
 
                         <div className="row flex-nowrap d-flex align-items-center">
-                          <div className="col-sm-6">Cleanliness:</div>
+                          <div className="col-sm-6 categoryLabel">Cleanliness:</div>
                           <div className="col-sm-6 star-rating">
                             <div className="star-rating__wrap ">
                               <input className="star-rating__input" id="clean-rating-5" type="radio" name="rating" value="5" onClick={e => this.onStarClick_Clean(e)} />
@@ -177,7 +175,7 @@ export class Review extends Component {
                         </div>
 
                         <div className="row flex-nowrap d-flex align-items-center">
-                          <div className="col-sm-6">Capacity:</div>
+                          <div className="col-sm-6 categoryLabel">Capacity:</div>
                           <div className="col-sm-6 star-rating">
                             <div className="star-rating__wrap">
                               <input className="star-rating__input" id="capacity-rating-5" type="radio" name="capacity" value="5" onClick={e => this.onStarClick_Capacity(e)} />
@@ -195,29 +193,29 @@ export class Review extends Component {
                         </div>
 
                         <div className="row flex-nowrap d-flex align-items-center">
-                          <div className="col-sm-6">Quality:</div>
+                          <div className="col-sm-6 categoryLabel">Quality:</div>
                           <div className="col-sm-6 star-rating">
                             <div className="star-rating__wrap">
                               <input className="star-rating__input" id="quality-rating-5" type="radio" name="quality" value="5" onClick={e => this.onStarClick_Quality(e)} />
                               <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-5" title="5 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-4" type="radio" name="quality" value="4" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-4" title="4 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-4"  title="4 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-3" type="radio" name="quality" value="3" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-3" title="3 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-3"  title="3 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-2" type="radio" name="quality" value="2" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-2" title="2 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-1"  title="2 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-1" type="radio" name="quality" value="1" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-lg" for="clean-rating-1" title="1 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-lg" for="quality-rating-1"  title="1 out of 5 stars"></label>
                             </div>
                           </div>
                         </div>
 
                         <div className="row flex-nowrap d-flex align-items-center">
-                          <div className="col-sm-6">Style:</div>
+                          <div className="col-sm-6 categoryLabel">Style:</div>
                           <div className="col-sm-6 star-rating">
                             <div className="star-rating__wrap">
                               <input className="star-rating__input" id="style-rating-5" type="radio" name="style" value="5" onClick={e => this.onStarClick_Style(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-lg" for="style-rating-5" title="5 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-lg" for="style-rating-5"  title="5 out of 5 stars"></label>
                               <input className="star-rating__input" id="style-rating-4" type="radio" name="style" value="4" onClick={e => this.onStarClick_Style(e)} />
                               <label className="star-rating__ico fa fa-star-o fa-lg" for="style-rating-4" title="4 out of 5 stars"></label>
                               <input className="star-rating__input" id="style-rating-3" type="radio" name="style" value="3" onClick={e => this.onStarClick_Style(e)} />

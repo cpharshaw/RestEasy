@@ -12,6 +12,8 @@ import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 import './mapStyle.css';
 
+import Review from '../../Components/Review';
+
 export const MyStyle = [
   [
     {
@@ -106,7 +108,7 @@ const MapWithASearchBox = compose(
 
         bounds: null,
 
-        zoom: 18,
+        zoom: 15,
 
         center: {
           lat: null,
@@ -175,7 +177,7 @@ const MapWithASearchBox = compose(
 )(props =>
 
   <div className="">
-
+< Review />
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -197,7 +199,7 @@ const MapWithASearchBox = compose(
 
     </SearchBox>
 
-
+  
     <GoogleMap
       ref={props.onMapMounted}
       defaultZoom={props.zoom}
@@ -231,6 +233,7 @@ const MapWithASearchBox = compose(
       )}
 
     </GoogleMap>
+    
   </div>
 );
 
