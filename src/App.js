@@ -20,12 +20,15 @@ class App extends Component {
     return (
       <div>
         {/* <Header /> */}
-        <MapWithASearchBox />
+        {/* <MapWithASearchBox /> */}
+        {/* <Review/> */}
+        {/* < Settings />  */}
+        {/* <Login/> */}
         <Footer />
       </div>
     )
     {/*  <div>
-        < Settings /> *
+        
          <Header/> *
               <Login/>
 
