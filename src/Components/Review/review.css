@@ -1,11 +1,11 @@
 .reviewPage {
   position: fixed;
-  top: 65px;
+  top: 0;
   left: 0;
   right: 0; 
 
-  height: calc(100vh - 130px);
-  height: 100%;
+  height: calc(100vh - 60px);
+  /* height: 100%; */
   /* background: red; */
 
 }
