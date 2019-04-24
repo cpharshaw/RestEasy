@@ -16,6 +16,7 @@ import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 // import { InfoWindow } from "react-google-maps/lib/components/InfoWindow";
 
 import './mapStyle.css';
+import './popup.css';
 
 // import '../Review';
 
@@ -139,17 +140,6 @@ const MapWithASearchBox = compose(
         },
 
 
-        handleToggleOpen: () => {
-          this.setState({
-            isOpen: true
-          });
-        },
-
-        handleToggleClose: () => {
-          this.setState({
-            isOpen: false
-          });
-        },
 
         onSearchBoxMounted: ref => {
           refs.searchBox = ref;
@@ -162,7 +152,7 @@ const MapWithASearchBox = compose(
 
           places.forEach(place => {
 
-            console.log(place);
+            // console.log(place);
 
             if (place.geometry.viewport) {
               bounds.union(place.geometry.viewport)
@@ -262,6 +252,9 @@ const MapWithASearchBox = compose(
 
     // https://github.com/tomchentw/react-google-maps/issues/175
     >
+
+          {console.log(props)}
+
       {props.markers.map((marker, index) =>
 
         <Marker
@@ -269,16 +262,17 @@ const MapWithASearchBox = compose(
           position={marker.position}
           onClick={props.onToggleOpen}
         >
+
+          {
+            props.isOpen &&
+            <InfoWindow onCloseClick={props.onToggleOpen}>
+
+              < Review/>
+
+            </InfoWindow>
+          }
+
           
-            {
-             props.isOpen && 
-               <InfoWindow onCloseClick={props.onToggleOpen}>
-                 
-                 < Review />
-
-               </InfoWindow>
-           }
-
         </Marker>
       )}
 
@@ -294,7 +288,8 @@ export default MapWithASearchBox;
 // onBoundsChanged: () => {
 //   this.setState({
 //     bounds: refs.map.getBounds(),
-                    // center: refs.map.getCenter()
-                    // center: new google.maps.LatLngBounds()
+// center: refs.map.getCenter()
+// center: new google.maps.LatLngBounds()
 //   })
 // },
+

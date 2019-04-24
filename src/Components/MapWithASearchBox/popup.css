@@ -1,0 +1,32 @@
+.gm-style-iw-d {
+  background: red !important;
+  /* border: 5px solid red; */
+  padding: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+
+.gm-style-iw {  
+  padding: 0 !important;
+}
+
+.gm-style-iw-c {
+
+}
+
+.gm-style-iw-t {
+  bottom: 40px !important;
+
+}
+
+
+
+/* <div 
+  class="gm-style-iw gm-style-iw-c" 
+  style="padding-right: 0px; padding-bottom: 0px; max-width: 255px; max-height: 438px;"
+>
+  <div
+    class="gm-style-iw-d" 
+    style="overflow: scroll; max-width: 237px; max-height: 420px;"
+  > */
