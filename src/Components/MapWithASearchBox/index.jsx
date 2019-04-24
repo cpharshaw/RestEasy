@@ -17,8 +17,8 @@ const MapWithASearchBox = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div className="containerElement"  />,
-    mapElement: <div className="mapElement"  />,
+    containerElement: <div className="containerElement" />,
+    mapElement: <div className="mapElement" />,
   }),
 
   // showCurrentLocation = () => {
@@ -34,67 +34,96 @@ const MapWithASearchBox = compose(
   //   }
   // },
 
+
+
   lifecycle({
 
+
     componentWillMount() {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.setState({
+          center: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        })
+      })
+    },
+
+
+    componentDidMount() {
 
       const refs = {}
 
-      this.setState({
-        bounds: null,
-        center: {
-          lat: 39.953194,
-          lng: -75.163345
-        },
+      // if (navigator.geolocation) {
+      // navigator.geolocation.getCurrentPosition(position => {
+        this.setState({
 
-        markers: [],
+          bounds: null,
 
-        onMapMounted: ref => {
-          refs.map = ref;
-        },
+          zoom: 18,
 
-        onBoundsChanged: () => {
-          this.setState({
-            bounds: refs.map.getBounds(),
-            // center: refs.map.getCenter()
-            // center: new google.maps.LatLngBounds()
-          })
-        },
+          center: {
+            lat: null,
+            lng: null
+          },
 
-        onSearchBoxMounted: ref => {
-          refs.searchBox = ref;
-        },
+          markers: [],
 
-        onPlacesChanged: () => {
+          onMapMounted: ref => {
+            refs.map = ref;
+          },
 
-          const places = refs.searchBox.getPlaces();
-          const bounds = new google.maps.LatLngBounds();
-   
-  
+          onBoundsChanged: () => {
+            this.setState({
+              bounds: refs.map.getBounds(),
+              // center: refs.map.getCenter()
+              // center: new google.maps.LatLngBounds()
+            })
+          },
 
-          places.forEach(place => {
-            if (place.geometry.viewport) {
-              bounds.union(place.geometry.viewport)
-            } else {
-              bounds.extend(place.geometry.location)
-            }
-          });
+          onSearchBoxMounted: ref => {
+            refs.searchBox = ref;
+          },
 
-          const nextMarkers = places.map(place => ({
-            position: place.geometry.location,
-          }));
+          onPlacesChanged: () => {
 
-          const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
+            const places = refs.searchBox.getPlaces();
+            const bounds = new google.maps.LatLngBounds();
 
-          this.setState({
-            center: nextCenter,
-            markers: nextMarkers,
-          });
 
-          refs.map.fitBounds(bounds);
-        },
-      })
-    },
+
+            places.forEach(place => {
+
+              console.log(place);
+
+              if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport)
+              } else {
+                bounds.extend(place.geometry.location)
+              }
+
+            });
+
+            const nextMarkers = places.map(place => ({
+              position: place.geometry.location,
+            }));
+
+            const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
+
+            this.setState({
+              center: nextCenter,
+              markers: nextMarkers,
+            });
+
+            refs.map.fitBounds(bounds);
+          }
+
+
+        });
+      // }
+    }
+
   }),
   withScriptjs,
   withGoogleMap
@@ -126,7 +155,7 @@ const MapWithASearchBox = compose(
 
     <GoogleMap
       ref={props.onMapMounted}
-      defaultZoom={14}
+      defaultZoom={props.zoom}
       center={props.center}
       onBoundsChanged={props.onBoundsChanged}
       mapTypeId="roadmap"
@@ -143,15 +172,15 @@ const MapWithASearchBox = compose(
       }}
     // https://github.com/tomchentw/react-google-maps/issues/175
     >
-      {props.markers.map((marker, index) => 
-        <Marker 
-          key={index} 
-          position={marker.position} 
+      {props.markers.map((marker, index) =>
+        <Marker
+          key={index}
+          position={marker.position}
           onClick={marker.onMarkerClick}
         />
-        
+
       )
-    }
+      }
 
     </GoogleMap>
   </div>
@@ -161,3 +190,10 @@ export default MapWithASearchBox;
 
 
 
+// onBoundsChanged: () => {
+//   this.setState({
+//     bounds: refs.map.getBounds(),
+                    // center: refs.map.getCenter()
+                    // center: new google.maps.LatLngBounds()
+//   })
+// },
