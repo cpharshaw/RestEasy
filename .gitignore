@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/src/icebox
 
 # production
 /build
