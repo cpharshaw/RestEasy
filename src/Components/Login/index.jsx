@@ -42,7 +42,7 @@ class Login extends Component {
 
             <div className="row ">
               <div className="col-sm-12 d-flex justify-content-center">
-                <img src="https://via.placeholder.com/300x300x?text=RESTeasy+logo" className="login-logo img-fluid " alt="logo" />
+                <img src="https://media.istockphoto.com/photos/public-toilet-room-picture-id670218984?k=6&m=670218984&s=612x612&w=0&h=LXwBAKIfVJS2rzrRipOkB1ICV6OXgV3Mj0ghjg22j1w=" className="login-logo img-fluid " alt="logo" />
               </div>
             </div>
 

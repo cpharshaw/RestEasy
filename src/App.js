@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 import Login from './Components/Login';
-import Header from './Components/Header';
 import MapWithASearchBox from './Components/MapWithASearchBox';
 import Review from './Components/Review';
 import Footer from './Components/Footer';
@@ -19,10 +18,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          < Login />
-          <Route exact path="/" component={Login} />
+          < MapWithASearchBox />
+          <Route exact path="/Login" component={Login} />
           <Route exact path="/MapWithASearchBox" component={MapWithASearchBox} />
           <Route exact path="/Settings" component={Settings} />
+          < Footer />
         </div>
       </Router>
     )

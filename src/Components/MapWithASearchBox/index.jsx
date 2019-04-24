@@ -1,16 +1,23 @@
 /* global google  */
+
+
 import React, { Component } from 'react';
 import * as _ from "lodash";
-import { compose, withProps, lifecycle } from "recompose";
+import { compose, withProps, lifecycle, withStateHandlers } from "recompose";
+import { FaAnchor } from "react-icons/fa";
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker,
+  InfoWindow
 } from "react-google-maps";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
+// import { InfoWindow } from "react-google-maps/lib/components/InfoWindow";
 
 import './mapStyle.css';
+
+// import '../Review';
 
 import Review from '../../Components/Review';
 
@@ -131,6 +138,19 @@ const MapWithASearchBox = compose(
           })
         },
 
+
+        handleToggleOpen: () => {
+          this.setState({
+            isOpen: true
+          });
+        },
+
+        handleToggleClose: () => {
+          this.setState({
+            isOpen: false
+          });
+        },
+
         onSearchBoxMounted: ref => {
           refs.searchBox = ref;
         },
@@ -172,12 +192,19 @@ const MapWithASearchBox = compose(
     }
 
   }),
+  withStateHandlers(() => ({
+    isOpen: false,
+  }), {
+      onToggleOpen: ({ isOpen }) => () => ({
+        isOpen: !isOpen,
+      })
+    }),
   withScriptjs,
   withGoogleMap
 )(props =>
 
   <div className="">
-< Review />
+    {/* < Review /> */}
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -189,7 +216,7 @@ const MapWithASearchBox = compose(
         <div className="row ">
           <div className="col-sm-12 ">
             <input
-              className="searchInput text-center"
+              className="searchInput text-left"
               type="text"
               placeholder="Search for places"
             />
@@ -199,7 +226,7 @@ const MapWithASearchBox = compose(
 
     </SearchBox>
 
-  
+
     <GoogleMap
       ref={props.onMapMounted}
       defaultZoom={props.zoom}
@@ -219,21 +246,44 @@ const MapWithASearchBox = compose(
         styles: MyStyle[0]
 
       }}
+    // var infowindow = new google.maps.InfoWindow({
+    //   content: contentString
+    // });
 
+    // var marker = new google.maps.Marker({
+    //   position: uluru,
+    //   map: map,
+    //   title: 'Uluru (Ayers Rock)'
+    // });
+    // marker.addListener('click', function() {
+    //   infowindow.open(map, marker);
+    // });
 
 
     // https://github.com/tomchentw/react-google-maps/issues/175
     >
       {props.markers.map((marker, index) =>
+
         <Marker
           key={index}
           position={marker.position}
-          onClick={marker.onMarkerClick}
-        />
+          onClick={props.onToggleOpen}
+        >
+          
+            {
+             props.isOpen && 
+               <InfoWindow onCloseClick={props.onToggleOpen}>
+                 
+                 < Review />
+
+               </InfoWindow>
+           }
+
+        </Marker>
       )}
 
     </GoogleMap>
-    
+
   </div>
 );
 
