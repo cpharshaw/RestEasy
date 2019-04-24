@@ -20,7 +20,7 @@ class App extends Component {
       <div>
         {/* < Login /> */}
         {/* <Review/> */}
-        < MapWithASearchBox />
+        < Review />
         {/* < Settings />  */}
         {/* <Login/> */}
         < Footer />

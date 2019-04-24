@@ -205,7 +205,6 @@ const MapWithASearchBox = compose(
       onBoundsChanged={props.onBoundsChanged}
       mapTypeId="roadmap"
       defaultOptions={{
-        // styles: mapStyle,
         // these following 7 options turn certain controls off see link below
         streetViewControl: true,
         // scaleControl: false,
@@ -215,8 +214,6 @@ const MapWithASearchBox = compose(
         // zoomControl: false,
         // rotateControl: false,
         fullscreenControl: false,
-        featureType: "administrative",
-        elementType: "geometry",
         styles: MyStyle[0]
 
       }}
@@ -231,9 +228,7 @@ const MapWithASearchBox = compose(
           position={marker.position}
           onClick={marker.onMarkerClick}
         />
-
-      )
-      }
+      )}
 
     </GoogleMap>
   </div>
