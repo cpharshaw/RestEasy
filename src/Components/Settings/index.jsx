@@ -20,7 +20,6 @@ export class index extends React.Component {
     const { open } = this.state;
     return (
       <div>
-        < Header />
         <div class="jumbotron jumbotron-fluid text-center p-4">
           <img src="title-rest-easy.png" alt="title" class="title-image"></img>
           <br></br>
