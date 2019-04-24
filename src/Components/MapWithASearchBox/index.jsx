@@ -12,6 +12,49 @@ import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 import './mapStyle.css';
 
+export const MyStyle = [
+  [
+    {
+      "featureType": "administrative",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "transit",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    }
+  ]
+
+]
+
+
+
+
 const MapWithASearchBox = compose(
 
   withProps({
@@ -19,6 +62,7 @@ const MapWithASearchBox = compose(
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div className="containerElement" />,
     mapElement: <div className="mapElement" />,
+
   }),
 
   // showCurrentLocation = () => {
@@ -55,72 +99,73 @@ const MapWithASearchBox = compose(
 
       const refs = {}
 
+
       // if (navigator.geolocation) {
       // navigator.geolocation.getCurrentPosition(position => {
-        this.setState({
+      this.setState({
 
-          bounds: null,
+        bounds: null,
 
-          zoom: 18,
+        zoom: 18,
 
-          center: {
-            lat: null,
-            lng: null
-          },
-
-          markers: [],
-
-          onMapMounted: ref => {
-            refs.map = ref;
-          },
-
-          onBoundsChanged: () => {
-            this.setState({
-              bounds: refs.map.getBounds(),
-              // center: refs.map.getCenter()
-              // center: new google.maps.LatLngBounds()
-            })
-          },
-
-          onSearchBoxMounted: ref => {
-            refs.searchBox = ref;
-          },
-
-          onPlacesChanged: () => {
-
-            const places = refs.searchBox.getPlaces();
-            const bounds = new google.maps.LatLngBounds();
+        center: {
+          lat: null,
+          lng: null
+        },
 
 
 
-            places.forEach(place => {
+        markers: [],
 
-              console.log(place);
+        onMapMounted: ref => {
+          refs.map = ref;
+        },
 
-              if (place.geometry.viewport) {
-                bounds.union(place.geometry.viewport)
-              } else {
-                bounds.extend(place.geometry.location)
-              }
+        onBoundsChanged: () => {
+          this.setState({
+            bounds: refs.map.getBounds(),
+            // center: refs.map.getCenter()
+            // center: new google.maps.LatLngBounds()
+          })
+        },
 
-            });
+        onSearchBoxMounted: ref => {
+          refs.searchBox = ref;
+        },
 
-            const nextMarkers = places.map(place => ({
-              position: place.geometry.location,
-            }));
+        onPlacesChanged: () => {
 
-            const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
+          const places = refs.searchBox.getPlaces();
+          const bounds = new google.maps.LatLngBounds();
 
-            this.setState({
-              center: nextCenter,
-              markers: nextMarkers,
-            });
+          places.forEach(place => {
 
-            refs.map.fitBounds(bounds);
-          }
+            console.log(place);
+
+            if (place.geometry.viewport) {
+              bounds.union(place.geometry.viewport)
+            } else {
+              bounds.extend(place.geometry.location)
+            }
+
+          });
+
+          const nextMarkers = places.map(place => ({
+            position: place.geometry.location,
+          }));
+
+          const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
+
+          this.setState({
+            center: nextCenter,
+            markers: nextMarkers,
+          });
+
+          refs.map.fitBounds(bounds);
+        }
 
 
-        });
+      });
       // }
     }
 
@@ -162,14 +207,22 @@ const MapWithASearchBox = compose(
       defaultOptions={{
         // styles: mapStyle,
         // these following 7 options turn certain controls off see link below
-        streetViewControl: false,
+        streetViewControl: true,
         // scaleControl: false,
+        clickableIcons: true,
         mapTypeControl: false,
         // panControl: false,
         // zoomControl: false,
         // rotateControl: false,
         fullscreenControl: false,
+        featureType: "administrative",
+        elementType: "geometry",
+        styles: MyStyle[0]
+
       }}
+
+
+
     // https://github.com/tomchentw/react-google-maps/issues/175
     >
       {props.markers.map((marker, index) =>
