@@ -41,7 +41,8 @@ const MapWithASearchBox = compose(
       this.setState({
         bounds: null,
         center: {
-          lat: 41.9, lng: -87.624
+          lat: 39.953194,
+          lng: -75.163345
         },
 
         markers: [],
@@ -63,8 +64,11 @@ const MapWithASearchBox = compose(
         },
 
         onPlacesChanged: () => {
+
           const places = refs.searchBox.getPlaces();
           const bounds = new google.maps.LatLngBounds();
+   
+  
 
           places.forEach(place => {
             if (place.geometry.viewport) {
@@ -93,44 +97,62 @@ const MapWithASearchBox = compose(
   withScriptjs,
   withGoogleMap
 )(props =>
-  <GoogleMap
-    ref={props.onMapMounted}
-    defaultZoom={15}
-    center={props.center}
-    onBoundsChanged={props.onBoundsChanged}
-  >
+
+  <div className="">
 
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
-      controlPosition={google.maps.ControlPosition.TOP_LEFT}
+      controlPosition={google.maps.ControlPosition.TOP_CENTER}
       onPlacesChanged={props.onPlacesChanged}
     >
-      <input
-        type="text"
-        placeholder="Customized your placeholder"
-        style={{
-          boxSizing: `border-box`,
-          border: `1px solid transparent`,
-          width: `240px`,
-          height: `32px`,
-          marginTop: `27px`,
-          padding: `0 12px`,
-          borderRadius: `3px`,
-          boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-          fontSize: `14px`,
-          outline: `none`,
-          textOverflow: `ellipses`,
-        }}
-      />
+
+      <div className="container ">
+        <div className="row ">
+          <div className="col-sm-12 ">
+            <input
+              className="searchInput text-center"
+              type="text"
+              placeholder="Search for places"
+            />
+          </div>
+        </div>
+      </div>
 
     </SearchBox>
 
-    {props.markers.map((marker, index) =>
-      <Marker key={index} position={marker.position} />
-    )}
 
-  </GoogleMap>
+    <GoogleMap
+      ref={props.onMapMounted}
+      defaultZoom={14}
+      center={props.center}
+      onBoundsChanged={props.onBoundsChanged}
+      mapTypeId="roadmap"
+      defaultOptions={{
+        // styles: mapStyle,
+        // these following 7 options turn certain controls off see link below
+        streetViewControl: false,
+        // scaleControl: false,
+        mapTypeControl: false,
+        // panControl: false,
+        // zoomControl: false,
+        // rotateControl: false,
+        fullscreenControl: false,
+      }}
+    // https://github.com/tomchentw/react-google-maps/issues/175
+    >
+      {props.markers.map((marker, index) => 
+        <Marker 
+          key={index} 
+          position={marker.position} 
+          onClick={marker.onMarkerClick}
+        />
+        
+      )
+    }
+
+    </GoogleMap>
+  </div>
 );
 
 export default MapWithASearchBox;

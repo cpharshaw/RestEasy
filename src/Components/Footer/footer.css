@@ -3,22 +3,28 @@
     bottom: 0;
     left: 0;
     right: 0;
-    /* height: 65px; */
-    /* background: green */
+    height: 50px;
+    background: #44aacc;
+    box-shadow: 0 -3px 7px grey;
+    z-index: 100;
   }
 
-  .a {
+  /* .a {
     height: 200%;
     width: 200%;
-  }
+  } */
 
   img {
     height: 25px;
-    width: 60px;
+    width: 40px;
   }
 
   .nav-fill .nav-item {
     flex: 1;
+  }
+
+  .nav-item:hover {
+    background-color: rgb(235, 235, 235);
   }
 
   Link {
