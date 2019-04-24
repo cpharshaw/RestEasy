@@ -24,7 +24,7 @@
   right: 0; 
 
   height: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   /* z-index: 100; */
 } 
 
@@ -36,7 +36,7 @@
 
 .searchInput {
   position: relative;
-  margin-top: 20px;
+  margin-top: 45px;
   opacity: .85;
   /* top: 0; */
   box-sizing: border-box;
@@ -47,7 +47,7 @@
   /* margin-top: -27px; */
   /* padding: 0 12px; */
   border-radius: 11.5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 10px lightslategrey;
   font-size: 16px;
   outline: none;
   text-overflow: ellipsis;
