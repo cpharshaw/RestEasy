@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 // import './App.css';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 import Login from './Components/Login';
 import Header from './Components/Header';
@@ -15,27 +16,16 @@ import Button from 'react-bootstrap/Button';
 
 class App extends Component {
   render() {
-
     return (
-      <div>
-        {/* < Login /> */}
-        {/* <Review/> */}
-        < MapWithASearchBox />
-        {/* < Settings />  */}
-        {/* <Login/> */}
-        < Footer />
-      </div>
+      <Router>
+        <div>
+          < Login />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/MapWithASearchBox" component={MapWithASearchBox} />
+          <Route exact path="/Settings" component={Settings} />
+        </div>
+      </Router>
     )
-    {/*  <div>
-        
-         <Header/> *
-              <Login/>
-
-         < MainApp /> *
-         <Review/> *
-         <Footer/> 
-      </div>*/}
-
   }
 }
 

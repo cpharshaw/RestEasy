@@ -28,8 +28,8 @@ class Login extends Component {
 
             <div className="row headline-wrapper">
               <div className="col-sm-12 mt-3">
-                <p className="h4 text-wrap text-center">Welcome to <span id="brand">RESTeasy</span></p>
-                <p className="text-wrap text-center">Your guide to all things fit to sit on.</p>
+                <p className="h4 text-wrap text-center ">Welcome to <span id="brand">RESTeasy</span></p>
+                <p className="text-wrap text-center "><span id="tagline">Your guide to all things fit to sit on.</span></p>
               </div>
             </div>
 

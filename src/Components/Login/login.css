@@ -1,8 +1,5 @@
 
 
-p, a, span {
-  /* font-size: 85%; */
-}
 
 .login-body {
   overflow-y: hidden;
@@ -30,6 +27,11 @@ p, a, span {
   font-style: italic;
 }
 
+#tagline {
+  color: #333;
+  font-weight: normal;
+}
+
 .login-logo {
   /* object-fit: cover; */
   width: 300px;
@@ -50,7 +52,8 @@ p, a, span {
 }
 
 .tos {
-  /* width: 80%; */
+  color: #333;
+  font-weight: normal;
 }
 
 .spacer {
