@@ -21,12 +21,4 @@ export class Header extends Component {
   }
 }
 
-{/* <div className="header">
-<nav className="navbar-light bg-light p-2">
-  <form className="form-inline">
-    <input className="form-control text-center" type="search" placeholder="Search" aria-label="Search" />
- </form>
-</nav> 
-</div> */}
-
 export default Header;

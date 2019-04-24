@@ -10,32 +10,27 @@ import {
 } from "react-google-maps";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
-import './mapStyle.css';
-
 const MapWithASearchBox = compose(
 
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places",
-    loadingElement: <div className="loadingElement" />,
-    containerElement: <div className="containerElement" />,
-    mapElement: <div className="mapElement" />,
-    // loadingElement: <div style={{ height: `100%` }} />,
-    // containerElement: <div style={{ height: `400px` }} />,
-    // mapElement: <div style={{ height: `100%` }} />,
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `400px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
   }),
 
-  // showCurrentLocation = () => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition( position => {
-  //         this.setState({
-  //           lat: position.coords.latitude,
-  //           lng: position.coords.longitude
-  //         });
-  //     });
-  //   } else {
-  //     error => console.log(error)
-  //   }
-  // },
+  showCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( position => {
+          this.setState({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+      });
+    } else {
+      error => console.log(error)
+    }
+  },
 
   lifecycle({
 
@@ -54,7 +49,6 @@ const MapWithASearchBox = compose(
 
         onMapMounted: ref => {
           refs.map = ref;
-
         },
 
         onBoundsChanged: () => {
@@ -63,7 +57,6 @@ const MapWithASearchBox = compose(
             // center: refs.map.getCenter()
             // center: new google.maps.LatLngBounds()
           })
-
         },
 
         onSearchBoxMounted: ref => {
@@ -97,7 +90,6 @@ const MapWithASearchBox = compose(
           });
 
           refs.map.fitBounds(bounds);
-
         },
       })
     },
