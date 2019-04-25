@@ -105,6 +105,14 @@ const MapWithASearchBox = compose(
 
         bounds: null,
 
+        searchValue: "",
+
+        handleChange: (event) => {
+          this.setState({
+            searchValue: event.target.value
+          });
+        },
+
         zoom: 15,
 
         center: {
@@ -129,6 +137,13 @@ const MapWithASearchBox = compose(
           })
         },
 
+        clearResults: () => {
+          this.setState({
+            markers: [],
+            searchValue: "",
+            zoom: 15
+          })
+        },
 
 
         onSearchBoxMounted: ref => {
@@ -166,6 +181,8 @@ const MapWithASearchBox = compose(
             isOpen: !this.state.isOpen
           });
 
+          console.log(this.state);
+
           refs.map.fitBounds(bounds);
         }
 
@@ -190,6 +207,7 @@ const MapWithASearchBox = compose(
       onToggleOpen: ({ updateSelectedPlace }) => key => {
         updateSelectedPlace(key);
       }
+
     }
 
   })
@@ -204,13 +222,15 @@ const MapWithASearchBox = compose(
       onPlacesChanged={props.onPlacesChanged}
     >
 
-      <div className="container bg-info">
-        <div className="row bg-warning">
-          <div className="col-sm-12 bg-success">
+      <div className="container">
+        <div className="row ">
+          <div className="col-sm-12 ">
             <input
               className="searchInput text-left"
               type="search"
               placeholder="Search for places"
+              value={props.searchValue}
+              onChange={(e) => props.handleChange(e)}
             />
           </div>
         </div>
@@ -240,6 +260,16 @@ const MapWithASearchBox = compose(
       }}
     >
 
+    <div className="clearMarkers">
+
+      <button 
+        className="btn btn-warning"
+        onClick={props.clearResults}
+      >
+        Clear results
+      </button>
+
+    </div>
 
 
       {props.markers && props.markers.map((marker, i) =>
