@@ -204,9 +204,9 @@ const MapWithASearchBox = compose(
       onPlacesChanged={props.onPlacesChanged}
     >
 
-      <div className="container ">
-        <div className="row ">
-          <div className="col-sm-12 ">
+      <div className="container bg-info">
+        <div className="row bg-warning">
+          <div className="col-sm-12 bg-success">
             <input
               className="searchInput text-left"
               type="search"
