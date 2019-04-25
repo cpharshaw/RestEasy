@@ -134,6 +134,7 @@ const MapWithASearchBox = compose(
         onBoundsChanged: () => {
           this.setState({
             bounds: refs.map.getBounds(),
+            isOpen: !this.state.isOpen
             // center: refs.map.getCenter()
             // center: new google.maps.LatLngBounds()
           })
@@ -146,6 +147,10 @@ const MapWithASearchBox = compose(
         },
 
         onPlacesChanged: () => {
+
+          this.setState({
+            isOpen: !this.state.isOpen
+          });
 
           const places = refs.searchBox.getPlaces();
           const bounds = new google.maps.LatLngBounds();
@@ -171,6 +176,7 @@ const MapWithASearchBox = compose(
           this.setState({
             center: nextCenter,
             markers: nextMarkers,
+            isOpen: !this.state.isOpen
           });
 
           refs.map.fitBounds(bounds);
@@ -207,9 +213,11 @@ const MapWithASearchBox = compose(
           <div className="col-sm-12 ">
             <input
               className="searchInput text-left"
-              type="text"
+              type="search"
               placeholder="Search for places"
             />
+            {/* <span id="searchclear" className="glyphicon glyphicon-remove-circle" /> */}
+
           </div>
         </div>
       </div>
@@ -236,24 +244,7 @@ const MapWithASearchBox = compose(
         styles: MyStyle[0]
 
       }}
-    // var infowindow = new google.maps.InfoWindow({
-    //   content: contentString
-    // });
-
-    // var marker = new google.maps.Marker({
-    //   position: uluru,
-    //   map: map,
-    //   title: 'Uluru (Ayers Rock)'
-    // });
-    // marker.addListener('click', function() {
-    //   infowindow.open(map, marker);
-    // });
-
-
-    // https://github.com/tomchentw/react-google-maps/issues/175
     >
-
-          {console.log(props)}
 
       {props.markers.map((marker, index) =>
 
@@ -262,19 +253,18 @@ const MapWithASearchBox = compose(
           position={marker.position}
           onClick={props.onToggleOpen}
         >
-
           {
             props.isOpen &&
             <InfoWindow onCloseClick={props.onToggleOpen}>
 
-              < Review/>
+              < Review />
 
             </InfoWindow>
           }
-
-          
         </Marker>
       )}
+
+
 
     </GoogleMap>
 

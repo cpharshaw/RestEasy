@@ -1,25 +1,22 @@
 .gm-style-iw-d {
-  background: red !important;
-  /* border: 5px solid red; */
-  padding: 0 !important;
   max-width: 100% !important;
   max-height: 100% !important;
 }
 
-
-.gm-style-iw {  
+div[class*="gm-style-"]{
   padding: 0 !important;
 }
 
-.gm-style-iw-c {
+div .gm-style-iw .gm-style-iw-c { 
 
 }
+
 
 .gm-style-iw-t {
-  bottom: 40px !important;
+  /* bottom: 40px !important; */
+  bottom: 22.5px !important;
 
 }
-
 
 
 /* <div 
