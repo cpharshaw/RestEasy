@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import * as _ from "lodash";
-import { compose, withProps, lifecycle, withStateHandlers } from "recompose";
+import { compose, withProps, lifecycle, withStateHandlers, withHandlers, withState } from "recompose";
 import { FaAnchor } from "react-icons/fa";
 import {
   withScriptjs,
@@ -68,25 +68,15 @@ export const MyStyle = [
 const MapWithASearchBox = compose(
 
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places,markers",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div className="containerElement" />,
-    mapElement: <div className="mapElement" />,
-
+    mapElement: <div className="mapElement" />
   }),
 
-  // showCurrentLocation = () => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition( position => {
-  //         this.setState({
-  //           lat: position.coords.latitude,
-  //           lng: position.coords.longitude
-  //         });
-  //     });
-  //   } else {
-  //     error => console.log(error)
-  //   }
-  // },
+
+  withState('places', 'updatePlaces', ''),
+  withState('selectedPlace', 'updateSelectedPlace', null),
 
 
 
@@ -108,7 +98,6 @@ const MapWithASearchBox = compose(
     componentDidMount() {
 
       const refs = {}
-
 
       // if (navigator.geolocation) {
       // navigator.geolocation.getCurrentPosition(position => {
@@ -157,8 +146,6 @@ const MapWithASearchBox = compose(
 
           places.forEach(place => {
 
-            // console.log(place);
-
             if (place.geometry.viewport) {
               bounds.union(place.geometry.viewport)
             } else {
@@ -184,23 +171,32 @@ const MapWithASearchBox = compose(
 
 
       });
-      // }
     }
 
   }),
-  withStateHandlers(() => ({
-    isOpen: false,
-  }), {
-      onToggleOpen: ({ isOpen }) => () => ({
-        isOpen: !isOpen,
-      })
-    }),
+  // withStateHandlers(() => ({
+  //   isOpen: false
+  // }), {
+  //     onToggleOpen: ({ isOpen }) => () => ({
+  //       isOpen: !isOpen
+  //     })
+  //   }),
   withScriptjs,
-  withGoogleMap
+  withGoogleMap,
+
+  withHandlers(() => {
+
+    return {
+      onToggleOpen: ({ updateSelectedPlace }) => key => {
+        updateSelectedPlace(key);
+      }
+    }
+
+  })
 )(props =>
 
   <div className="">
-    {/* < Review /> */}
+
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -216,8 +212,6 @@ const MapWithASearchBox = compose(
               type="search"
               placeholder="Search for places"
             />
-            {/* <span id="searchclear" className="glyphicon glyphicon-remove-circle" /> */}
-
           </div>
         </div>
       </div>
@@ -246,19 +240,20 @@ const MapWithASearchBox = compose(
       }}
     >
 
-      {props.markers.map((marker, index) =>
 
+
+      {props.markers && props.markers.map((marker, i) =>
         <Marker
-          key={index}
+          onClick={() => props.onToggleOpen(i)}
+          key={i}
           position={marker.position}
-          onClick={props.onToggleOpen}
         >
           {
-            props.isOpen &&
+            props.selectedPlace === i &&
             <InfoWindow onCloseClick={props.onToggleOpen}>
-
-              < Review />
-
+              <div>
+                < Review />
+              </div>
             </InfoWindow>
           }
         </Marker>
@@ -283,3 +278,22 @@ export default MapWithASearchBox;
 //   })
 // },
 
+
+
+// {props.markers.map((marker, index) =>
+
+//   <Marker
+//     key={index}
+//     position={marker.position}
+//     onClick={props.onToggleOpen(index)}
+//   >
+//     {
+//       props.isOpen &&
+//       <InfoWindow onCloseClick={this.onToggleOpen(index)}>
+
+//         < Review />
+
+//       </InfoWindow>
+//     }
+//   </Marker>
+// )}

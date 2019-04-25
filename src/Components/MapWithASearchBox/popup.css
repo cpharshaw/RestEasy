@@ -7,10 +7,15 @@ div[class*="gm-style-"]{
   padding: 0 !important;
 }
 
-div .gm-style-iw .gm-style-iw-c { 
-
+.gm-style-iw { 
+  /* max-width: 500px !important;
+  max-height: 500px !important; */
 }
 
+.gm-style-iw-c { 
+  max-width: fit-content !important;
+  max-height: fit-content !important;
+}
 
 .gm-style-iw-t {
   /* bottom: 40px !important; */
