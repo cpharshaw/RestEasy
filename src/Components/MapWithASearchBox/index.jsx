@@ -105,12 +105,20 @@ const MapWithASearchBox = compose(
 
         bounds: null,
 
+        searchValue: "",
+
+        handleChange: (event) => {
+          this.setState({
+            searchValue: event.target.value
+          });
+        },
+
         zoom: 15,
 
-        center: {
-          lat: null,
-          lng: null
-        },
+        // center: {
+        //   lat: null,
+        //   lng: null
+        // },
 
 
 
@@ -129,6 +137,29 @@ const MapWithASearchBox = compose(
           })
         },
 
+        clearResults: () => {
+          this.setState({
+            markers: [],
+            searchValue: "",
+            bounds: refs.map.getBounds(),
+
+            zoom: 15
+          })
+        },
+
+        recenter: () => {
+          navigator.geolocation.getCurrentPosition(position => {
+            this.setState({
+              center: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              },
+              bounds: refs.map.getBounds(),
+              markers: [],
+              zoom: 15
+            })
+          })
+        },
 
 
         onSearchBoxMounted: ref => {
@@ -166,6 +197,8 @@ const MapWithASearchBox = compose(
             isOpen: !this.state.isOpen
           });
 
+          console.log(this.state);
+
           refs.map.fitBounds(bounds);
         }
 
@@ -190,12 +223,13 @@ const MapWithASearchBox = compose(
       onToggleOpen: ({ updateSelectedPlace }) => key => {
         updateSelectedPlace(key);
       }
+
     }
 
   })
 )(props =>
 
-  <div className="">
+  <div className="wholeMap">
 
     <SearchBox
       ref={props.onSearchBoxMounted}
@@ -204,14 +238,18 @@ const MapWithASearchBox = compose(
       onPlacesChanged={props.onPlacesChanged}
     >
 
-      <div className="container bg-info">
-        <div className="row bg-warning">
-          <div className="col-sm-12 bg-success">
-            <input
-              className="searchInput text-left"
-              type="search"
-              placeholder="Search for places"
-            />
+      <div className="container">
+        <div className="row ">
+          <div className="col-sm-12 ">
+            <form onSubmit={(e) => e.preventDefault()}>
+              <input
+                className="searchInput text-left"
+                type="search"
+                placeholder="Search for places"
+                value={props.searchValue}
+                onChange={(e) => props.handleChange(e)}
+              />
+            </form>
           </div>
         </div>
       </div>
@@ -222,6 +260,7 @@ const MapWithASearchBox = compose(
     <GoogleMap
       ref={props.onMapMounted}
       defaultZoom={props.zoom}
+      zoom={props.zoom}
       center={props.center}
       onBoundsChanged={props.onBoundsChanged}
       mapTypeId="roadmap"
@@ -240,6 +279,27 @@ const MapWithASearchBox = compose(
       }}
     >
 
+      <div className="clearMarkersBtn">
+
+        <button
+          className="btn btn-warning"
+          onClick={props.clearResults}
+        >
+          Clear results
+      </button>
+
+      </div>
+
+      <div className="recenterBtn">
+
+        <button
+          className="btn btn-info"
+          onClick={props.recenter}
+        >
+          Recenter
+        </button>
+
+      </div>
 
 
       {props.markers && props.markers.map((marker, i) =>
