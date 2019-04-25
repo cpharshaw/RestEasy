@@ -145,6 +145,21 @@ const MapWithASearchBox = compose(
           })
         },
 
+        recenter: () => {
+          navigator.geolocation.getCurrentPosition(position => {
+            this.setState({
+              center: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              },
+              bounds: refs.map.getBounds(),
+              markers: [],
+              searchValue: "",
+              zoom: 15
+            })
+          })
+        },
+
 
         onSearchBoxMounted: ref => {
           refs.searchBox = ref;
@@ -225,13 +240,15 @@ const MapWithASearchBox = compose(
       <div className="container">
         <div className="row ">
           <div className="col-sm-12 ">
-            <input
-              className="searchInput text-left"
-              type="search"
-              placeholder="Search for places"
-              value={props.searchValue}
-              onChange={(e) => props.handleChange(e)}
-            />
+            <form onSubmit={(e) => e.preventDefault()}>
+              <input
+                className="searchInput text-left"
+                type="search"
+                placeholder="Search for places"
+                value={props.searchValue}
+                onChange={(e) => props.handleChange(e)}
+              />
+            </form>
           </div>
         </div>
       </div>
@@ -260,16 +277,27 @@ const MapWithASearchBox = compose(
       }}
     >
 
-    <div className="clearMarkers">
+      <div className="clearMarkersBtn">
 
-      <button 
-        className="btn btn-warning"
-        onClick={props.clearResults}
-      >
-        Clear results
+        <button
+          className="btn btn-warning"
+          onClick={props.clearResults}
+        >
+          Clear results
       </button>
 
-    </div>
+      </div>
+
+      <div className="recenterBtn">
+
+        <button
+          className="btn btn-info"
+          onClick={props.recenter}
+        >
+          Recenter
+        </button>
+
+      </div>
 
 
       {props.markers && props.markers.map((marker, i) =>
