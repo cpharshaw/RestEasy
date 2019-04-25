@@ -115,10 +115,10 @@ const MapWithASearchBox = compose(
 
         zoom: 15,
 
-        center: {
-          lat: null,
-          lng: null
-        },
+        // center: {
+        //   lat: null,
+        //   lng: null
+        // },
 
 
 
@@ -141,6 +141,8 @@ const MapWithASearchBox = compose(
           this.setState({
             markers: [],
             searchValue: "",
+            bounds: refs.map.getBounds(),
+
             zoom: 15
           })
         },
@@ -154,7 +156,6 @@ const MapWithASearchBox = compose(
               },
               bounds: refs.map.getBounds(),
               markers: [],
-              searchValue: "",
               zoom: 15
             })
           })
@@ -228,7 +229,7 @@ const MapWithASearchBox = compose(
   })
 )(props =>
 
-  <div className="">
+  <div className="wholeMap">
 
     <SearchBox
       ref={props.onSearchBoxMounted}
@@ -259,6 +260,7 @@ const MapWithASearchBox = compose(
     <GoogleMap
       ref={props.onMapMounted}
       defaultZoom={props.zoom}
+      zoom={props.zoom}
       center={props.center}
       onBoundsChanged={props.onBoundsChanged}
       mapTypeId="roadmap"
