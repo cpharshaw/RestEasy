@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './settings.css';
-import Header from '../Header';
 import Footer from '../Footer';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';

@@ -1,9 +1,9 @@
-.footer, .container-fluid {
+.footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 55px;
     background: #44aacc;
     box-shadow: 0 -1px 10px lightslategray;
     z-index: 100;

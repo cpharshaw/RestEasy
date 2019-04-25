@@ -25,15 +25,15 @@ export class index extends Component {
         <div className="row d-flex flex-nowrap allLinks">
 
           <div className="col-sm-2 offset-1 linkBox text-center">
-            <Link className="" to='/'>
-              <i className="fas fa-map fa-2x"></i>
-            </Link>
+            {/* <Link className="" to='/'> */}
+              <i className="fas fa-map fa-lg"></i>
+            {/* </Link> */}
           </div>
 
           <div className="col-sm-2  linkBox text-center">
-            <Link className="" to='/'>
-              <i className="fas fa-map-marker-alt fa-2x"></i>
-            </Link>
+            {/* <Link className="" to='/'> */}
+              <i className="fas fa-map-marker-alt fa-lg"></i>
+            {/* </Link> */}
           </div>
 
           <div className="col-sm-2  linkBox text-center">
@@ -41,15 +41,15 @@ export class index extends Component {
           </div>
 
           <div className="col-sm-2  linkBox text-center">
-            <Link className="" to='/'>
-              <i className="fas fa-plus fa-2x"></i>
-            </Link>
+            {/* <Link className="" to='/'> */}
+              <i className="fas fa-plus fa-lg"></i>
+            {/* </Link> */}
           </div>
 
           <div className="col-sm-2  linkBox text-center">
-            <Link className="" to='/'>
-              <i className="fas fa-bars  fa-2x"></i>
-            </Link>
+            {/* <Link className="" to='/'> */}
+              <i className="fas fa-bars  fa-lg"></i>
+            {/* </Link> */}
           </div>
 
         </div>

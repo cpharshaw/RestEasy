@@ -1,16 +1,26 @@
 .reviewPage {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  right: 0; 
-
-  height: calc(100vh - 60px);
+  right: 0;
+  margin-bottom: 60px;
+  
+  height: fit-content;
+  max-width: fit-content;
+  /* height: calc(100vh - 50px); */
   /* height: 100%; */
-  /* background: red; */
-
+  background: rgb(55,55,55,.925);
+  
 }
 
+input {
+  font-size: 10px;
+}
 
+label, p, .categoryLabel {
+  color: whitesmoke;
+  font-weight: bold;
+}
 
 
 .h-fit-content {
@@ -26,4 +36,9 @@
 textarea {
   border: 0.5px solid grey;
   padding: 5px;
+}
+
+
+.star-rating__wrap, .starRating {
+  width: fit-content !important;
 }

@@ -1,0 +1,29 @@
+.gm-style-iw-d {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+div[class*="gm-style-"]{
+  padding: 0 !important;
+}
+
+div .gm-style-iw .gm-style-iw-c { 
+
+}
+
+
+.gm-style-iw-t {
+  /* bottom: 40px !important; */
+  bottom: 22.5px !important;
+
+}
+
+
+/* <div 
+  class="gm-style-iw gm-style-iw-c" 
+  style="padding-right: 0px; padding-bottom: 0px; max-width: 255px; max-height: 438px;"
+>
+  <div
+    class="gm-style-iw-d" 
+    style="overflow: scroll; max-width: 237px; max-height: 420px;"
+  > */

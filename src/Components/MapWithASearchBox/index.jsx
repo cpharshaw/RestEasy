@@ -1,16 +1,26 @@
 /* global google  */
+
+
 import React, { Component } from 'react';
 import * as _ from "lodash";
-import { compose, withProps, lifecycle } from "recompose";
+import { compose, withProps, lifecycle, withStateHandlers } from "recompose";
+import { FaAnchor } from "react-icons/fa";
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker,
+  InfoWindow
 } from "react-google-maps";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
+// import { InfoWindow } from "react-google-maps/lib/components/InfoWindow";
 
 import './mapStyle.css';
+import './popup.css';
+
+// import '../Review';
+
+import Review from '../../Components/Review';
 
 export const MyStyle = [
   [
@@ -106,7 +116,7 @@ const MapWithASearchBox = compose(
 
         bounds: null,
 
-        zoom: 18,
+        zoom: 15,
 
         center: {
           lat: null,
@@ -124,10 +134,13 @@ const MapWithASearchBox = compose(
         onBoundsChanged: () => {
           this.setState({
             bounds: refs.map.getBounds(),
+            isOpen: !this.state.isOpen
             // center: refs.map.getCenter()
             // center: new google.maps.LatLngBounds()
           })
         },
+
+
 
         onSearchBoxMounted: ref => {
           refs.searchBox = ref;
@@ -135,12 +148,16 @@ const MapWithASearchBox = compose(
 
         onPlacesChanged: () => {
 
+          this.setState({
+            isOpen: !this.state.isOpen
+          });
+
           const places = refs.searchBox.getPlaces();
           const bounds = new google.maps.LatLngBounds();
 
           places.forEach(place => {
 
-            console.log(place);
+            // console.log(place);
 
             if (place.geometry.viewport) {
               bounds.union(place.geometry.viewport)
@@ -159,6 +176,7 @@ const MapWithASearchBox = compose(
           this.setState({
             center: nextCenter,
             markers: nextMarkers,
+            isOpen: !this.state.isOpen
           });
 
           refs.map.fitBounds(bounds);
@@ -170,12 +188,19 @@ const MapWithASearchBox = compose(
     }
 
   }),
+  withStateHandlers(() => ({
+    isOpen: false,
+  }), {
+      onToggleOpen: ({ isOpen }) => () => ({
+        isOpen: !isOpen,
+      })
+    }),
   withScriptjs,
   withGoogleMap
 )(props =>
 
   <div className="">
-
+    {/* < Review /> */}
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -187,10 +212,12 @@ const MapWithASearchBox = compose(
         <div className="row ">
           <div className="col-sm-12 ">
             <input
-              className="searchInput text-center"
-              type="text"
+              className="searchInput text-left"
+              type="search"
               placeholder="Search for places"
             />
+            {/* <span id="searchclear" className="glyphicon glyphicon-remove-circle" /> */}
+
           </div>
         </div>
       </div>
@@ -217,20 +244,30 @@ const MapWithASearchBox = compose(
         styles: MyStyle[0]
 
       }}
-
-
-
-    // https://github.com/tomchentw/react-google-maps/issues/175
     >
+
       {props.markers.map((marker, index) =>
+
         <Marker
           key={index}
           position={marker.position}
-          onClick={marker.onMarkerClick}
-        />
+          onClick={props.onToggleOpen}
+        >
+          {
+            props.isOpen &&
+            <InfoWindow onCloseClick={props.onToggleOpen}>
+
+              < Review />
+
+            </InfoWindow>
+          }
+        </Marker>
       )}
 
+
+
     </GoogleMap>
+
   </div>
 );
 
@@ -241,7 +278,8 @@ export default MapWithASearchBox;
 // onBoundsChanged: () => {
 //   this.setState({
 //     bounds: refs.map.getBounds(),
-                    // center: refs.map.getCenter()
-                    // center: new google.maps.LatLngBounds()
+// center: refs.map.getCenter()
+// center: new google.maps.LatLngBounds()
 //   })
 // },
+
