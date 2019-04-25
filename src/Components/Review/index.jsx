@@ -241,7 +241,7 @@ export class Review extends Component {
                         <form>
                           <div className="form-group">
                             <label for="exampleFormControlFile1">Example file input</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" />
+                            <input type="file" className="form-control-file" id="exampleFormControlFile1" />
                           </div>
                         </form>
                         {/* https://academind.com/learn/react/snippets/image-upload/ */}
