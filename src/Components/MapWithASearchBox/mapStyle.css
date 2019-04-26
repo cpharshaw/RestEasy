@@ -12,6 +12,10 @@
 .wholeMap {
   position:relative;
   z-index: 1;
+  height: 100%;
+  margin: 0 auto;
+  margin: 0;
+  bottom: 0;
 }
 
 

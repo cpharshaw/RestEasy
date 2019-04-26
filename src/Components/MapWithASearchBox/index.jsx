@@ -266,15 +266,27 @@ const MapWithASearchBox = compose(
       mapTypeId="roadmap"
       defaultOptions={{
         // these following 7 options turn certain controls off see link below
+        // zoom: 12,
         streetViewControl: true,
+        streetViewControlOptions: {
+          position: google.maps.ControlPosition.DEFAULT
+      },
         // scaleControl: false,
         clickableIcons: true,
         mapTypeControl: false,
-        // panControl: false,
-        // zoomControl: false,
+        // panControl: true,
+        zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.DEFAULT
+          },
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DEFAULT,
+        },
         // rotateControl: false,
         fullscreenControl: false,
         styles: MyStyle[0]
+        
 
       }}
     >
