@@ -12,15 +12,11 @@
 .wholeMap {
   position:relative;
   z-index: 1;
-  height: 100%;
-  margin: 0 auto;
-  margin: 0;
-  bottom: 0;
 }
 
 
 .loadingElement {
-  height: 100%;
+  /* height: 100%; */
 }
 
 
@@ -39,7 +35,7 @@
 
 
 .containerElement {
-  position: fixed;  
+  position: relative;  
   top: 0;
   left: 0;
   right: 0; 
@@ -73,7 +69,7 @@
   /* padding: 0 12px; */
   border-radius: 11.5px;
   box-shadow: 0 0.5px 4px #44aacc;
-  font-size: 2.5vh;
+  font-size: 16px;
   outline: none;
   text-overflow: ellipsis;
 }

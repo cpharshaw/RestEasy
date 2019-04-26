@@ -134,19 +134,19 @@ export class Review extends Component {
                         <form>
                           <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch1" />
-                            <label className="custom-control-label" for="customSwitch1">Customers only (not free)</label>
+                            <label className="custom-control-label" htmlFor="customSwitch1">Customers only (not free)</label>
                           </div>
                           {/* <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch2" />
-                            <label className="custom-control-label" for="customSwitch2">Handicap Accessible</label>
+                            <label className="custom-control-label" htmlFor="customSwitch2">Handicap Accessible</label>
                           </div> */}
                           {/* <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch3" />
-                            <label className="custom-control-label" for="customSwitch3">Baby Changing Table</label>
+                            <label className="custom-control-label" htmlFor="customSwitch3">Baby Changing Table</label>
                           </div> */}
                           <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch4" />
-                            <label className="custom-control-label" for="customSwitch4">Female Friendly</label>
+                            <label className="custom-control-label" htmlFor="customSwitch4">Female Friendly</label>
                           </div>
                         </form>
                       </div>
@@ -163,15 +163,15 @@ export class Review extends Component {
                           <div className="col-sm-8 star-rating">
                             <div className="star-rating__wrap ">
                               <input className="star-rating__input" id="clean-rating-5" type="radio" name="rating" value="5" onClick={e => this.onStarClick_Clean(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="clean-rating-5" title="5 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="clean-rating-5" title="5 out of 5 stars"></label>
                               <input className="star-rating__input" id="clean-rating-4" type="radio" name="rating" value="4" onClick={e => this.onStarClick_Clean(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="clean-rating-4" title="4 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="clean-rating-4" title="4 out of 5 stars"></label>
                               <input className="star-rating__input" id="clean-rating-3" type="radio" name="rating" value="3" onClick={e => this.onStarClick_Clean(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="clean-rating-3" title="3 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="clean-rating-3" title="3 out of 5 stars"></label>
                               <input className="star-rating__input" id="clean-rating-2" type="radio" name="rating" value="2" onClick={e => this.onStarClick_Clean(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="clean-rating-2" title="2 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="clean-rating-2" title="2 out of 5 stars"></label>
                               <input className="star-rating__input" id="clean-rating-1" type="radio" name="rating" value="1" onClick={e => this.onStarClick_Clean(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="clean-rating-1" title="1 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="clean-rating-1" title="1 out of 5 stars"></label>
                             </div>
                           </div>
                         </div>
@@ -181,15 +181,15 @@ export class Review extends Component {
                           <div className="col-sm-8 star-rating">
                             <div className="star-rating__wrap">
                               <input className="star-rating__input" id="capacity-rating-5" type="radio" name="capacity" value="5" onClick={e => this.onStarClick_Capacity(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="capacity-rating-5" title="5 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="capacity-rating-5" title="5 out of 5 stars"></label>
                               <input className="star-rating__input" id="capacity-rating-4" type="radio" name="capacity" value="4" onClick={e => this.onStarClick_Capacity(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="capacity-rating-4" title="4 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="capacity-rating-4" title="4 out of 5 stars"></label>
                               <input className="star-rating__input" id="capacity-rating-3" type="radio" name="capacity" value="3" onClick={e => this.onStarClick_Capacity(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="capacity-rating-3" title="3 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="capacity-rating-3" title="3 out of 5 stars"></label>
                               <input className="star-rating__input" id="capacity-rating-2" type="radio" name="capacity" value="2" onClick={e => this.onStarClick_Capacity(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="capacity-rating-2" title="2 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="capacity-rating-2" title="2 out of 5 stars"></label>
                               <input className="star-rating__input" id="capacity-rating-1" type="radio" name="capacity" value="1" onClick={e => this.onStarClick_Capacity(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="capacity-rating-1" title="1 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="capacity-rating-1" title="1 out of 5 stars"></label>
                             </div>
                           </div>
                         </div>
@@ -199,15 +199,15 @@ export class Review extends Component {
                           <div className="col-sm-8 star-rating">
                             <div className="star-rating__wrap">
                               <input className="star-rating__input" id="quality-rating-5" type="radio" name="quality" value="5" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="quality-rating-5" title="5 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="quality-rating-5" title="5 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-4" type="radio" name="quality" value="4" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="quality-rating-4" title="4 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="quality-rating-4" title="4 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-3" type="radio" name="quality" value="3" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="quality-rating-3" title="3 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="quality-rating-3" title="3 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-2" type="radio" name="quality" value="2" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="quality-rating-1" title="2 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="quality-rating-1" title="2 out of 5 stars"></label>
                               <input className="star-rating__input" id="quality-rating-1" type="radio" name="quality" value="1" onClick={e => this.onStarClick_Quality(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="quality-rating-1" title="1 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="quality-rating-1" title="1 out of 5 stars"></label>
                             </div>
                           </div>
                         </div> */}
@@ -217,15 +217,15 @@ export class Review extends Component {
                           <div className="col-sm-8 star-rating">
                             <div className="star-rating__wrap">
                               <input className="star-rating__input" id="style-rating-5" type="radio" name="style" value="5" onClick={e => this.onStarClick_Style(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="style-rating-5" title="5 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="style-rating-5" title="5 out of 5 stars"></label>
                               <input className="star-rating__input" id="style-rating-4" type="radio" name="style" value="4" onClick={e => this.onStarClick_Style(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="style-rating-4" title="4 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="style-rating-4" title="4 out of 5 stars"></label>
                               <input className="star-rating__input" id="style-rating-3" type="radio" name="style" value="3" onClick={e => this.onStarClick_Style(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="style-rating-3" title="3 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="style-rating-3" title="3 out of 5 stars"></label>
                               <input className="star-rating__input" id="style-rating-2" type="radio" name="style" value="2" onClick={e => this.onStarClick_Style(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="style-rating-2" title="2 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="style-rating-2" title="2 out of 5 stars"></label>
                               <input className="star-rating__input" id="style-rating-1" type="radio" name="style" value="1" onClick={e => this.onStarClick_Style(e)} />
-                              <label className="star-rating__ico fa fa-star-o fa-md" for="style-rating-1" title="1 out of 5 stars"></label>
+                              <label className="star-rating__ico fa fa-star-o fa-md" htmlFor="style-rating-1" title="1 out of 5 stars"></label>
                             </div>
                           </div>
                         </div>
@@ -240,7 +240,7 @@ export class Review extends Component {
 
                         <form>
                           <div className="form-group">
-                            <label for="exampleFormControlFile1">Example file input</label>
+                            <label htmlFor="exampleFormControlFile1">Example file input</label>
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" />
                           </div>
                         </form>
