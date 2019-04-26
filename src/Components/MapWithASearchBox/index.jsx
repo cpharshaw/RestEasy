@@ -18,9 +18,14 @@ import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 import './mapStyle.css';
 import './popup.css';
 
+
 // import '../Review';
 
 import Review from '../../Components/Review';
+
+// var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png';
+var myLocationIcon = 'https://img.icons8.com/ultraviolet/40/000000/map-pin.png';
+
 
 export const MyStyle = [
   [
@@ -59,17 +64,25 @@ export const MyStyle = [
       ]
     }
   ]
-
 ]
 
 
-
+const demoLocations = [
+  {
+    position: { lat: 39.961491, lng: -75.145340 },
+    icon: { url: myLocationIcon }
+  }, 
+  {
+    position: { lat: 39.960726, lng: -75.143724 },
+    icon: { url: myLocationIcon }
+  }
+];
 
 const MapWithASearchBox = compose(
 
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places,markers",
-    loadingElement: <div style={{ height: `100%` }} />,
+    loadingElement: <div className="loadingElement" />,
     containerElement: <div className="containerElement" />,
     mapElement: <div className="mapElement" />
   }),
@@ -89,9 +102,14 @@ const MapWithASearchBox = compose(
           center: {
             lat: position.coords.latitude,
             lng: position.coords.longitude
+          },
+          origLoc: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
           }
         })
       })
+
     },
 
 
@@ -113,6 +131,10 @@ const MapWithASearchBox = compose(
           });
         },
 
+
+        logoURL: "http://chittagongit.com/images/current-location-icon-png/current-location-icon-png-11.jpg",
+
+
         zoom: 15,
 
         // center: {
@@ -121,8 +143,9 @@ const MapWithASearchBox = compose(
         // },
 
 
-
         markers: [],
+
+        reviewMarkers: [],
 
         onMapMounted: ref => {
           refs.map = ref;
@@ -132,8 +155,8 @@ const MapWithASearchBox = compose(
           this.setState({
             bounds: refs.map.getBounds(),
             isOpen: !this.state.isOpen
-            // center: refs.map.getCenter()
-            // center: new google.maps.LatLngBounds()
+            // ,center: refs.map.getCenter
+            // ,center: new google.maps.LatLngBounds()
           })
         },
 
@@ -141,24 +164,20 @@ const MapWithASearchBox = compose(
           this.setState({
             markers: [],
             searchValue: "",
-            bounds: refs.map.getBounds(),
-
-            zoom: 15
+            bounds: refs.map.getBounds()
           })
         },
 
         recenter: () => {
-          navigator.geolocation.getCurrentPosition(position => {
+          // navigator.geolocation.getCurrentPosition(position => {
             this.setState({
-              center: {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              },
-              bounds: refs.map.getBounds(),
-              markers: [],
-              zoom: 15
+              center: this.state.origLoc    
+              // bounds: refs.map.getBounds()
+
             })
-          })
+          // })
+
+
         },
 
 
@@ -197,8 +216,6 @@ const MapWithASearchBox = compose(
             isOpen: !this.state.isOpen
           });
 
-          console.log(this.state);
-
           refs.map.fitBounds(bounds);
         }
 
@@ -207,13 +224,7 @@ const MapWithASearchBox = compose(
     }
 
   }),
-  // withStateHandlers(() => ({
-  //   isOpen: false
-  // }), {
-  //     onToggleOpen: ({ isOpen }) => () => ({
-  //       isOpen: !isOpen
-  //     })
-  //   }),
+
   withScriptjs,
   withGoogleMap,
 
@@ -229,8 +240,9 @@ const MapWithASearchBox = compose(
   })
 )(props =>
 
-  <div className="wholeMap">
 
+  <div className="wholeMap">
+  
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -320,6 +332,32 @@ const MapWithASearchBox = compose(
       )}
 
 
+      {
+        props.isMarkerShown &&
+        <Marker
+          position={ props.origLoc }        
+          icon={{ url: myLocationIcon }}
+        />
+      }
+
+      {demoLocations && demoLocations.map( ( loc, i ) => 
+        <Marker
+          onClick={() => props.onToggleOpen(i)}
+          position = { loc.position }
+          key = { i }
+          // icon={{ url: myLocationIcon }}
+          >
+          {
+            props.selectedPlace === i &&
+            <InfoWindow onCloseClick={props.onToggleOpen}>
+              <div>
+                < Review />
+              </div>
+            </InfoWindow>
+          }
+        </Marker>
+      )}  
+
 
     </GoogleMap>
 
@@ -328,32 +366,3 @@ const MapWithASearchBox = compose(
 
 export default MapWithASearchBox;
 
-
-
-// onBoundsChanged: () => {
-//   this.setState({
-//     bounds: refs.map.getBounds(),
-// center: refs.map.getCenter()
-// center: new google.maps.LatLngBounds()
-//   })
-// },
-
-
-
-// {props.markers.map((marker, index) =>
-
-//   <Marker
-//     key={index}
-//     position={marker.position}
-//     onClick={props.onToggleOpen(index)}
-//   >
-//     {
-//       props.isOpen &&
-//       <InfoWindow onCloseClick={this.onToggleOpen(index)}>
-
-//         < Review />
-
-//       </InfoWindow>
-//     }
-//   </Marker>
-// )}
