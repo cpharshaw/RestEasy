@@ -1,7 +1,3 @@
-.gm-style-iw-d {
-  max-width: 100% !important;
-  max-height: 100% !important;
-}
 
 div[class*="gm-style-"]{
   padding: 0 !important;
@@ -10,11 +6,15 @@ div[class*="gm-style-"]{
 .gm-style-iw { 
   /* max-width: 500px !important;
   max-height: 500px !important; */
+  background: grey;
+
 }
 
 .gm-style-iw-c { 
   max-width: fit-content !important;
   max-height: fit-content !important;
+  background: yellow;
+
 }
 
 .gm-style-iw-t {
@@ -23,6 +23,27 @@ div[class*="gm-style-"]{
 
 }
 
+.gm-style-iw-d {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  background: green;
+}
+
+.gm-style .gm-style-iw-c {
+  border-radius: 11.5px !important;
+  box-shadow: 0 !important;
+  background-color: yellow !important;
+  box-shadow: 0 !important;
+}
+
+
+.gm-style .gm-style-iw-d::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none;
+  
+  /* display: none; */
+}
 
 /* <div 
   class="gm-style-iw gm-style-iw-c" 
@@ -32,3 +53,10 @@ div[class*="gm-style-"]{
     class="gm-style-iw-d" 
     style="overflow: scroll; max-width: 237px; max-height: 420px;"
   > */
+
+  button[title="Close"] {
+    top: 2px !important;
+    right: 2px !important;
+    color: white;
+    
+  }

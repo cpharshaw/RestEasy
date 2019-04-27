@@ -23,9 +23,14 @@ import './popup.css';
 
 import Review from '../../Components/Review';
 
+import Footer from '../Footer';
+
 // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png';
 var myLocationIcon = 'https://img.icons8.com/ultraviolet/40/000000/map-pin.png';
 
+const good = "https://img.icons8.com/office/30/000000/good-quality.png";
+// const good = "https://img.icons8.com/color/48/000000/approval.png";
+const bad = "https://img.icons8.com/office/30/000000/poor-quality.png";
 
 export const MyStyle = [
   [
@@ -69,12 +74,67 @@ export const MyStyle = [
 
 const demoLocations = [
   {
-    position: { lat: 39.961491, lng: -75.145340 },
-    icon: { url: myLocationIcon }
-  }, 
-  {
-    position: { lat: 39.960726, lng: -75.143724 },
-    icon: { url: myLocationIcon }
+    position: {
+      lat: 39.961491
+      , lng: -75.145340
+    },
+    icon: {
+      url: good
+    }
+  }
+  , {
+    position: {
+      lat: 39.960726
+      , lng: -75.143724
+    },
+    icon: {
+      url: bad
+    }
+  }
+  , {
+    position: {
+      lat: 39.940689
+      , lng: -75.198807
+    },
+    icon: {
+      url: bad
+    }
+  }
+  , {
+    position: {
+      lat: 39.964158
+      , lng: -75.140567
+    },
+    icon: {
+      url: good
+    }
+  }
+  , {
+    position: {
+      lat: 39.949815
+      , lng: -75.144752
+    },
+    icon: {
+      url: good
+    }
+  }
+  , {
+    position: {
+      lat: 39.953800
+      , lng: -75.166611
+    },
+    icon: {
+      url: bad
+    }
+  }
+  , {
+    position: {
+      lat: 39.956120
+      , lng: -75.190720
+    },
+    icon: {
+      url: good
+    }
   }
 ];
 
@@ -132,9 +192,6 @@ const MapWithASearchBox = compose(
         },
 
 
-        logoURL: "http://chittagongit.com/images/current-location-icon-png/current-location-icon-png-11.jpg",
-
-
         zoom: 15,
 
         // center: {
@@ -158,24 +215,36 @@ const MapWithASearchBox = compose(
             // ,center: refs.map.getCenter
             // ,center: new google.maps.LatLngBounds()
           })
+
         },
 
         clearResults: () => {
           this.setState({
             markers: [],
-            searchValue: "",
-            bounds: refs.map.getBounds()
+            searchValue: ""
+            // bounds: refs.map.getBounds()
           })
         },
 
-        recenter: () => {
-          // navigator.geolocation.getCurrentPosition(position => {
-            this.setState({
-              center: this.state.origLoc    
-              // bounds: refs.map.getBounds()
 
+        recenter: () => {
+
+          this.setState({
+            center: this.state.origLoc
+          });
+
+          navigator.geolocation.getCurrentPosition(position => {
+            this.setState({
+              center: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              },
+              origLoc: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              }
             })
-          // })
+          })
 
 
         },
@@ -185,7 +254,12 @@ const MapWithASearchBox = compose(
           refs.searchBox = ref;
         },
 
+
         onPlacesChanged: () => {
+
+
+
+          // console.log(refs);
 
           this.setState({
             isOpen: !this.state.isOpen
@@ -242,7 +316,7 @@ const MapWithASearchBox = compose(
 
 
   <div className="wholeMap">
-  
+
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -313,12 +387,22 @@ const MapWithASearchBox = compose(
 
       </div>
 
+      {
+        // props.isMarkerShown &&
+        <Marker
+          position={props.origLoc}
+          icon={{ url: myLocationIcon }}
+          animation={google.maps.Animation.DROP}
+        />
+      }
+
 
       {props.markers && props.markers.map((marker, i) =>
         <Marker
           onClick={() => props.onToggleOpen(i)}
           key={i}
           position={marker.position}
+          animation={google.maps.Animation.DROP}
         >
           {
             props.selectedPlace === i &&
@@ -332,34 +416,34 @@ const MapWithASearchBox = compose(
       )}
 
 
-      {
-        props.isMarkerShown &&
-        <Marker
-          position={ props.origLoc }        
-          icon={{ url: myLocationIcon }}
-        />
-      }
 
-      {demoLocations && demoLocations.map( ( loc, i ) => 
-        <Marker
-          onClick={() => props.onToggleOpen(i)}
-          position = { loc.position }
-          key = { i }
-          // icon={{ url: myLocationIcon }}
+
+      {demoLocations &&
+        demoLocations.map((loc, i) =>
+          <Marker
+            onClick={() => { props.onToggleOpen("custom" + i) }}
+            position={loc.position}
+            key={"custom" + i}
+            animation={google.maps.Animation.DROP}
+            icon={loc.icon}
           >
-          {
-            props.selectedPlace === i &&
-            <InfoWindow onCloseClick={props.onToggleOpen}>
-              <div>
-                < Review />
-              </div>
-            </InfoWindow>
-          }
-        </Marker>
-      )}  
+            {
+              props.selectedPlace === ("custom" + i) &&
+              <InfoWindow
+                onCloseClick={props.onToggleOpen}>
+                <div className="customInfoBox ">
+                  < Review />
+                  {/* <p className="">This is the best text ever</p> */}
+                </div>
+              </InfoWindow>
+            }
+          </Marker>
+        )
+      }
 
 
     </GoogleMap>
+    < Footer />
 
   </div>
 );

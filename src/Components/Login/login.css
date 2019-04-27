@@ -8,15 +8,15 @@
 
 .headline-wrapper {
 
-  background: whitesmoke;
+  /* background: whitesmoke; */
   border-top-left-radius: 40px;
   border-bottom-right-radius: 40px;
   border-top-right-radius: 11.5px;
   border-bottom-left-radius: 11.5px;
   /* min-width: 325px; */
-  width: 85vw;
-  opacity: .925;
-  box-shadow: 1px 2.5px 15px whitesmoke;
+  width: 85%;
+  /* opacity: .925; */
+  /* box-shadow: 1px 2.5px 15px whitesmoke; */
 
 }
 
@@ -24,6 +24,7 @@
 #brand {
   color: #44aacc;
   font-weight: 900;
+  font-size: 48px;
   font-style: italic;
 }
 
@@ -34,32 +35,27 @@
 
 .login-logo {
   /* object-fit: cover; */
-  width: 300px;
-  height: 300px;
-  border-radius: 11.5px;
+  width: 235px;
+  height: 235px;
+  border-radius: 6.5px;
   opacity: .925;
-  box-shadow: 1px 2.5px 15px whitesmoke;
+  box-shadow: 1px 5.5px 15px whitesmoke;
 }
 
 
-.login-button {
-  border-radius: 11.5px;
-  min-width: 275px;
-  max-width: 80%;
-  height: auto;
-  opacity: .90;
-  box-shadow: 1px 2.5px 15px whitesmoke;
-}
+
 
 .tos {
   color: #333;
   font-weight: normal;
 }
 
-.spacer {
-  /* visibility: hidden;
-  height: 2vh; */
+.tosText {
+  font-size: 13.5px !important;
+
 }
+
+
 
 
 
@@ -78,7 +74,7 @@
   position: absolute;
   margin: 0 auto;
 
-  top: 23vh;
+  top: 27vh;
   left: 0;
   right: 0;  
   
@@ -99,3 +95,40 @@
   font-size: 19px;
 }
 
+p, 
+a, 
+span, 
+div, 
+h1,h2,h3,h4,h5,h6, 
+label, 
+input, 
+textarea,
+button,
+Link {
+  font-family: 'Alegreya Sans', sans-serif;
+  /* font-family: 'M PLUS 1p', sans-serif; */
+  /* font-family: 'Quicksand', sans-serif; */
+  /* font-family: 'Rubik', sans-serif; */
+  /* font-family: 'Titillium Web', sans-serif; */
+  /* font-family: 'Varela Round', sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* font-family: 'Roboto Slab', serif; */
+  /* font-family: 'Noto Sans', sans-serif; */
+  /* font-family: 'Ubuntu', sans-serif; */
+  text-decoration: 'none';
+}
+
+
+
+.login-button {
+  border-radius: 27.5px;
+  min-width: 275px;
+  max-width: 80%;
+  height: auto;
+  opacity: .90;
+  /* box-shadow: 1px 2.5px 15px whitesmoke; */
+}
+
+.button {
+  font-size: 16px;
+}
