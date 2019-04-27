@@ -10,11 +10,6 @@ import Footer from './Components/Footer';
 import Settings from './Components/Settings'
 import Button from 'react-bootstrap/Button';
 
-import {
-  withGoogleMap,
-  GoogleMap,
-  Marker
-} from "react-google-maps";
 
 
 class App extends Component {
@@ -24,6 +19,7 @@ class App extends Component {
           {/* < MapWithASearchBox isMarkerShown/> */}
           {/* < Login /> */}
           <Route exact path="/" component={Login} />
+          <Route exact path="/Login" component={Login} />
           <Route exact path="/MapWithASearchBox" component={MapWithASearchBox} />
           <Route exact path="/Settings" component={Settings} />
           {/* < Footer /> */}

@@ -6,6 +6,16 @@
 
 }
 
+.headline-box {
+  position: absolute;
+  margin: 0 auto;
+
+  top: 21.5vh;
+  left: 0;
+  right: 0;
+  /* background: red; */
+}
+
 .headline-wrapper {
 
   /* background: whitesmoke; */
@@ -14,7 +24,7 @@
   border-top-right-radius: 11.5px;
   border-bottom-left-radius: 11.5px;
   /* min-width: 325px; */
-  width: 85%;
+  width: fit-content;
   /* opacity: .925; */
   /* box-shadow: 1px 2.5px 15px whitesmoke; */
 
@@ -22,16 +32,26 @@
 
 
 #brand {
-  color: #44aacc;
+  /* color: red; */
+  color: whitesmoke;
   font-weight: 900;
-  font-size: 48px;
+  font-size: 21.5vw;
   font-style: italic;
+  text-shadow: 1px 1px 22.5px #44aacc;
+  opacity: 0.925;
 }
 
+
+
 #tagline {
-  color: #333;
+  color: whitesmoke;
+  font-size: 5.25vw;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 5.5px #44aacc;
   font-weight: normal;
 }
+
 
 .login-logo {
   /* object-fit: cover; */
@@ -45,30 +65,23 @@
 
 
 
-.tos {
+.tos, .trouble {
   color: #333;
   font-weight: normal;
+  text-decoration: none;
 }
 
 .tosText {
   font-size: 13.5px !important;
-
+  text-decoration: none;
 }
 
 
-
-
-
-
-.headline-box {
-  position: absolute;
-  margin: 0 auto;
-
-  top: 5vh;
-  left: 0;
-  right: 0;
-  /* background: red; */
+.trouble {
+  color: #333 !important;
 }
+
+
 
 .logo-box {
   position: absolute;
@@ -81,19 +94,22 @@
   /* background: blue; */
 }
 
+
 .login-box {
   position: absolute;
   /* width: 100vw; */
-  top: 67.5vh;
+  top: 67vh;
   margin: 0 auto;
   left: 0;
   right: 0;
   /* background: green; */
 }
 
+
 .btn {
-  font-size: 19px;
+  /* font-size: px; */
 }
+
 
 p, 
 a, 
@@ -115,20 +131,24 @@ Link {
   /* font-family: 'Roboto Slab', serif; */
   /* font-family: 'Noto Sans', sans-serif; */
   /* font-family: 'Ubuntu', sans-serif; */
-  text-decoration: 'none';
 }
 
 
 
 .login-button {
   border-radius: 27.5px;
-  min-width: 275px;
-  max-width: 80%;
-  height: auto;
-  opacity: .90;
+  /* min-width: 275px; */
+  /* max-width: 80%; */
+  /* height: 50px !important; */
+  /* height: auto; */
+  opacity: .925;
+  padding: 10px;
+  width: 75vw;
+  box-shadow: 1px 1px 22.5px whitesmoke;
   /* box-shadow: 1px 2.5px 15px whitesmoke; */
-}
+}  
+
 
 .button {
-  font-size: 16px;
+  font-size: 18px;
 }
