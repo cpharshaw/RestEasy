@@ -9,16 +9,18 @@
   /* max-width: fit-content; */
   /* height: calc(100vh - 50px); */
   /* height: 100%; */
-  background: rgb(55,55,55);
+  background: transparent;
   
 }
 
-input {
-  /* font-size: 10px; */
+.textAddress {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;  
 }
 
 label, p, .categoryLabel {
-  color: whitesmoke;
+  /* color: whitesmoke; */
   font-weight: bold;
 }
 
@@ -36,6 +38,11 @@ label, p, .categoryLabel {
 textarea {
   border: 0.5px solid grey;
   padding: 5px;
+}
+
+.submitBtn {
+  background: #44aacc;
+  color: whitesmoke;
 }
 
 

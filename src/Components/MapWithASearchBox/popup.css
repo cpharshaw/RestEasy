@@ -13,27 +13,33 @@ div[class*="gm-style-"]{
 .gm-style-iw-c { 
   max-width: fit-content !important;
   max-height: fit-content !important;
-  background: yellow;
+  /* background: yellow; */
 
 }
 
 .gm-style-iw-t {
   /* bottom: 40px !important; */
   bottom: 22.5px !important;
+  /* box-shadow: 10px 10px 22.5px red; */
+
 
 }
 
 .gm-style-iw-d {
   max-width: 100% !important;
   max-height: 100% !important;
-  background: green;
+  background: whitesmoke;
+  /* border: 5px solid black; */
+  /* box-shadow: 10px 10px 22.5px red; */
 }
 
 .gm-style .gm-style-iw-c {
   border-radius: 11.5px !important;
   box-shadow: 0 !important;
-  background-color: yellow !important;
-  box-shadow: 0 !important;
+  /* background-color: yellow !important; */
+  /* box-shadow: 0 !important; */
+  box-shadow: 1px 1px 22.5px #44aacc;
+
 }
 
 

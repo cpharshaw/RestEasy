@@ -86,7 +86,7 @@ export class Review extends Component {
     console.log(this.state.selectedFile)
   }
 
-  render() {
+  render(props) {
     const { rating } = this.state
 
     return (
@@ -104,16 +104,15 @@ export class Review extends Component {
                     <label className="">Location Name:</label>
                     <input id="locName" type="text" className="form-control p-1 rounded" placeholder="Enter location Name" />
                   </div> */}
-                  <div className="d-flex flex-column mb-3">
-                    <label className="" >Address:</label>
-                    <input id="locAddr" type="text" className="form-control p-1 rounded" placeholder="1500 Market Street, Philadelphia, PA 19102" />
+                  <div className="d-flex flex-column mb-1">
+                    <h4>{this.props.dataName}</h4>
+                    <h6 className="text textAddress">{this.props.dataAddress}</h6>
                   </div>
-                  <div className="d-flex flex-column mb-3">
+                  <div className="d-flex flex-column mb-1">
                     <label className="" >Location Description:</label>
                     <input id="locDesc" type="text" className="form-control p-1 rounded" placeholder="Near checkout counter" />
                   </div>
                 </form>
-
               </div>
             </div>
 
@@ -123,9 +122,9 @@ export class Review extends Component {
 
                 <div className="row">
 
-                  <div className="col-sm-12 ml-1">
+                  {/* <div className="col-sm-12 ml-1">
                     <p className="">About Bathroom:</p>
-                  </div>
+                  </div> */}
 
                   <div className="col-sm-12 ml-1">
 
@@ -134,7 +133,7 @@ export class Review extends Component {
                         <form>
                           <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch1" />
-                            <label className="custom-control-label" htmlFor="customSwitch1">Customers only (not free)</label>
+                            <label className="custom-control-label" htmlFor="customSwitch1">Customers only</label>
                           </div>
                           {/* <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch2" />
@@ -235,7 +234,7 @@ export class Review extends Component {
                     </div>
 
 
-                    <div className="row mt-3">
+                    {/* <div className="row mt-3">
                       <div className="col-sm-12">
 
                         <form>
@@ -244,11 +243,14 @@ export class Review extends Component {
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" />
                           </div>
                         </form>
-                        {/* https://academind.com/learn/react/snippets/image-upload/ */}
-                        {/* https://www.youtube.com/watch?v=XeiOnkEI7XI */}
-
                       </div>
-                    </div>
+                    </div> */}
+                    {/* https://academind.com/learn/react/snippets/image-upload/ */}
+                    {/* https://www.youtube.com/watch?v=XeiOnkEI7XI */}
+
+
+
+                    <input className="btn submitBtn" type="submit" value="Submit" />
 
                   </div>
                 </div>

@@ -1,59 +1,59 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8%;
-    min-height: 56px;
-    /* height: 8vh; */
-    background: #44aacc;
-    box-shadow: 0 -1px 15.5px whitesmoke;
-    z-index: 100;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8%;
+  min-height: 56px;
+  /* height: 8vh; */
+  background: #44aacc;
+  box-shadow: 0 -1px 15.5px whitesmoke;
+  z-index: 100;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
 .fas {
-  color: whitesmoke;
-  margin: 0 auto;
+color: whitesmoke;
+margin: 0 auto;
 }
 
 .linkBox {
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
+margin: 0 auto;
+width: 100%;
+height: 100%;
 }
 
 
 
 .allLinks, .linkBar {
-  width: 100%;
-  margin: 0 auto !important;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  padding: 0 !important;
+width: 100%;
+margin: 0 auto !important;
+align-content: center;
+align-items: center;
+justify-content: center;
+vertical-align: middle;
+padding: 0 !important;
 }
-  /* .a {
-    height: 200%;
-    width: 200%;
-  } */
+/* .a {
+  height: 200%;
+  width: 200%;
+} */
 
-  img {
-    height: 25px;
-    width: 40px;
-  }
+img {
+  height: 25px;
+  width: 40px;
+}
 
-  .nav-fill .nav-item {
-    flex: 1;
-  }
+.nav-fill .nav-item {
+  flex: 1;
+}
 
-  .linkBox:hover {
-    /* background-color: rgb(235, 235, 235); */
-  }
+.linkBox:hover {
+  /* background-color: rgb(235, 235, 235); */
+}
 
-  Link {
-    padding: 0;
-    margin: 0;
-  }
+Link {
+  padding: 0;
+  margin: 0;
+}

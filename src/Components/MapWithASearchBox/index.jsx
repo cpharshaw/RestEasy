@@ -199,10 +199,11 @@ const MapWithASearchBox = compose(
         //   lng: null
         // },
 
+        resultMarkers: [],
+
 
         markers: [],
 
-        reviewMarkers: [],
 
         onMapMounted: ref => {
           refs.map = ref;
@@ -279,7 +280,11 @@ const MapWithASearchBox = compose(
 
           const nextMarkers = places.map(place => ({
             position: place.geometry.location,
+            placeObj: place
+            // ,position: place.geometry.location
           }));
+
+      
 
           const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
 
@@ -313,8 +318,8 @@ const MapWithASearchBox = compose(
   })
 )(props =>
 
-
   <div className="wholeMap">
+  {/* {console.log(props)} */}
 
     <SearchBox
       ref={props.onSearchBoxMounted}
@@ -351,7 +356,7 @@ const MapWithASearchBox = compose(
       mapTypeId="roadmap"
       defaultOptions={{
         // these following 7 options turn certain controls off see link below
-        streetViewControl: true,
+        streetViewControl: false,
         // scaleControl: false,
         clickableIcons: true,
         mapTypeControl: false,
@@ -373,7 +378,7 @@ const MapWithASearchBox = compose(
           className="btn btn-warning"
           onClick={props.clearResults}
         >
-          <i class="fas fa-eraser fa-2x"></i>
+          <i className="fas fa-eraser fa-2x"></i>
       </button>
 
       </div>
@@ -384,7 +389,7 @@ const MapWithASearchBox = compose(
           className="btn btn-info"
           onClick={props.recenter}
         >
-          <i class="fas fa-map-pin fa-2x"></i>
+          <i className="fas fa-map-pin fa-2x"></i>
         </button>
 
       </div>
@@ -408,16 +413,30 @@ const MapWithASearchBox = compose(
         >
           {
             props.selectedPlace === i &&
-            <InfoWindow onCloseClick={props.onToggleOpen}>
-              <div>
-                < Review />
+            <InfoWindow 
+              onCloseClick={props.onToggleOpen}
+            >
+              <div className="customInfoBox">
+                < Review
+                  dataAddress={marker.placeObj.formatted_address}
+                  dataPosition={marker.position}
+                  dataName={marker.placeObj.name}
+                >
+                </ Review>
+                {console.log(marker.placeObj.formatted_address)}
               </div>
             </InfoWindow>
           }
         </Marker>
       )}
 
-
+                {/* < Review  
+                   key={}
+                   id={}
+                   className=""
+                    data-latlong={marker.position}
+                   data-address={}
+                />*/}
 
 
       {demoLocations &&
