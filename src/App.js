@@ -21,13 +21,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          < MapWithASearchBox isMarkerShown/>
-          <Route exact path="/Login" component={Login} />
+          {/* < MapWithASearchBox isMarkerShown/> */}
+          {/* < Login /> */}
+          <Route exact path="/" component={Login} />
           <Route exact path="/MapWithASearchBox" component={MapWithASearchBox} />
           <Route exact path="/Settings" component={Settings} />
-          < Footer />
-        </div>
+          {/* < Footer /> */}
       </Router>
     )
   }

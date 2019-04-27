@@ -3,10 +3,6 @@ import './footer.css';
 import { Link } from 'react-router-dom';
 
 
-function refreshPage() {
-  window.location.reload();
-}
-
 export class index extends Component {
   render() {
     return (

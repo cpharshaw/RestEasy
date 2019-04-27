@@ -10,10 +10,27 @@
     padding: 0;
   } */
 .wholeMap {
-  position:relative;
-  z-index: 1;
+  /* position: relative;
+  z-index: 1; */
 }
 
+.containerElement {
+  position: fixed;  
+  top: 0;
+  left: 0;
+  right: 0; 
+
+  height: 92%;
+  min-height: calc(92% - 56px);
+  /* height: calc(100vh - 55px); */
+  /* height: 92vh; */
+  /* z-index: 100; */
+} 
+
+
+.mapElement {
+  height: 100%;
+}
 
 .loadingElement {
   /* height: 100%; */
@@ -34,22 +51,7 @@
 
 
 
-.containerElement {
-  position: relative;  
-  top: 0;
-  left: 0;
-  right: 0; 
 
-  height: 100%;
-  height: calc(100vh - 55px);
-  /* height: 92vh; */
-  /* z-index: 100; */
-} 
-
-
-.mapElement {
-  height: 100%;
-}
 
 
 
@@ -85,6 +87,13 @@
 .recenterBtn {
   position: fixed;
   top: 80vh;
+  background: red;
+}
+
+
+.customInfoBox {
+  width: 80vw;
+  height: 60vh;
   background: red;
 }
 
