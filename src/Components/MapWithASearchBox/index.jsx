@@ -17,6 +17,7 @@ import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 import './mapStyle.css';
 import './popup.css';
+import './loading.css';
 
 
 // import '../Review';
@@ -24,6 +25,9 @@ import './popup.css';
 import Review from '../../Components/Review';
 
 import Footer from '../Footer';
+
+import Spinner  from 'react-bootstrap/Spinner';
+
 
 // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png';
 var myLocationIcon = 'https://img.icons8.com/ultraviolet/40/000000/map-pin.png';
@@ -135,14 +139,13 @@ const demoLocations = [
     icon: {
       url: good
     }
-  }
-];
+  } 
+] ;
 
 const MapWithASearchBox = compose(
-
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places,markers",
-    loadingElement: <div className="loadingElement" />,
+    loadingElement: <div className="loader">Loading....</div>,    
     containerElement: <div className="containerElement" />,
     mapElement: <div className="mapElement" />
   }),
