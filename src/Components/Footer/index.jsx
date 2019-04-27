@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './footer.css';
 import { Link } from 'react-router-dom';
+import MapWithASearchBox from '../MapWithASearchBox';
 
 
 export class index extends Component {
@@ -21,31 +22,31 @@ export class index extends Component {
         <div className="row d-flex flex-nowrap allLinks">
 
           <div className="col-sm-2 offset-1 linkBox text-center">
-            {/* <Link className="" to='/'> */}
+            <Link className="" to='/MapWithASearchBox'>
               <i className="fas fa-map fa-lg"></i>
-            {/* </Link> */}
+            </Link>
           </div>
 
-          <div className="col-sm-2  linkBox text-center">
-            {/* <Link className="" to='/'> */}
+          {/* <div className="col-sm-2  linkBox text-center">
+            <Link className="" to='/MapWithASearchBox'>
               <i className="fas fa-map-marker-alt fa-lg"></i>
-            {/* </Link> */}
-          </div>
+            </Link>
+          </div> */}
 
           <div className="col-sm-2  linkBox text-center">
             <img src="rest-easy-logo.png" alt="rest easy"/>
           </div>
 
-          <div className="col-sm-2  linkBox text-center">
-            {/* <Link className="" to='/'> */}
+          {/* <div className="col-sm-2  linkBox text-center">
+            <Link className="" to='/'>
               <i className="fas fa-plus fa-lg"></i>
-            {/* </Link> */}
-          </div>
+            </Link>
+          </div> */}
 
           <div className="col-sm-2  linkBox text-center">
-            {/* <Link className="" to='/'> */}
+            <Link className="" to='/Settings'>
               <i className="fas fa-bars  fa-lg"></i>
-            {/* </Link> */}
+            </Link>
           </div>
 
         </div>

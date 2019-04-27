@@ -25,7 +25,7 @@ export class index extends React.Component {
           <br></br>
           <img src="user-settings.png" alt="Logo" class="user-image rounded-circle border border-dark"></img>
         </div>
-        <Link className="home-button nav-item nav-link" to='/'><button type="button" class="btn btn-primary btn-lg btn-block">Home</button></Link>
+        <Link className="home-button nav-item nav-link" to='/MapWithASearchBox'><button type="button" class="btn btn-secondary btn-lg btn-block">Home</button></Link>
         <Button
           onClick={() => this.setState({ open: !open })}
           aria-controls="example-collapse-text"
@@ -37,8 +37,9 @@ export class index extends React.Component {
           About Us
         </Button>
         <Collapse in={this.state.open}>
-          <div id="example-collapse-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div id="example-collapse-text text-center">
+          Find the nearest restroom! Give a rating! <br></br>
+          We are your guide to all things fit to sit on!
           </div>
         </Collapse>
         < Footer />

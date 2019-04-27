@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    /* background-color: transparent; */
 }
 
 .user-image {
@@ -18,6 +19,11 @@
 
 .navbar {
     padding: 0;
+}
+
+btn {
+    background-color: #44aacc;
+
 }
 
 .home-button {

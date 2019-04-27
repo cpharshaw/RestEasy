@@ -35,7 +35,7 @@
   /* color: red; */
   color: whitesmoke;
   font-weight: 900;
-  font-size: 21.5vw;
+  font-size: 15vw;
   font-style: italic;
   text-shadow: 1px 1px 22.5px #44aacc;
   opacity: 0.925;
@@ -45,7 +45,7 @@
 
 #tagline {
   color: whitesmoke;
-  font-size: 5.25vw;
+  font-size: 4vw;
   font-weight: bold;
   font-style: italic;
   text-shadow: 1px 1px 5.5px #44aacc;
