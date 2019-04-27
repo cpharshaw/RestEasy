@@ -31,12 +31,12 @@ class Login extends Component {
               <div className="col-sm-12 mt-3">
                 <p className="h4 text-wrap text-center ">
                   <span id="brand">
-                    RESTeasy
+                    rest☆easy
                   </span>
                 </p>
-                <p className="text-wrap text-center ">
+                <p className="text-wrap text-center">
                   <span id="tagline">
-                    {/* Your guide to all things fit to sit on. */}
+                    Your guide to all things fit to sit on
                   </span>
                 </p>
               </div>
@@ -46,7 +46,7 @@ class Login extends Component {
         </div>
 
 
-        <div className="row logo-box">
+        {/* <div className="row logo-box">
           <div className="col-sm-12">
 
             <div className="row ">
@@ -56,7 +56,7 @@ class Login extends Component {
             </div>
 
           </div>
-        </div>
+        </div> */}
 
 
         <div className="row mt-3 login-box">
@@ -89,7 +89,7 @@ class Login extends Component {
                   <button className="btn btn-info login-button">
                     <span className="button">
                       LOG IN WITH FACEBOOK
-                  </span>
+                    </span>
                   </button>
                 </Link>
               </div>
@@ -97,7 +97,7 @@ class Login extends Component {
 
             <div className="row mt-2">
               <div className="col-sm-12 d-flex justify-content-center">
-                <a href="#" target="_blank">Trouble logging in?</a>
+                {/* <a href="#" target="_blank" className="trouble">Trouble logging in?</a> */}
               </div>
             </div>
 

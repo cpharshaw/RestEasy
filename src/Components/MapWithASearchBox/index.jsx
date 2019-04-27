@@ -229,9 +229,10 @@ const MapWithASearchBox = compose(
 
         recenter: () => {
 
-          this.setState({
-            center: this.state.origLoc
-          });
+          // this.setState({
+          //   center: this.state.origLoc,
+          //   bounds: refs.map.getBounds()
+          // });
 
           navigator.geolocation.getCurrentPosition(position => {
             this.setState({
@@ -256,8 +257,6 @@ const MapWithASearchBox = compose(
 
 
         onPlacesChanged: () => {
-
-
 
           // console.log(refs);
 
