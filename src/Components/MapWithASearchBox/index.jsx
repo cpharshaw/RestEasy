@@ -356,7 +356,10 @@ const MapWithASearchBox = compose(
         clickableIcons: true,
         mapTypeControl: false,
         // panControl: false,
-        // zoomControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+      },
         // rotateControl: false,
         fullscreenControl: false,
         styles: MyStyle[0]
@@ -370,7 +373,7 @@ const MapWithASearchBox = compose(
           className="btn btn-warning"
           onClick={props.clearResults}
         >
-          Clear results
+          <i class="fas fa-eraser fa-2x"></i>
       </button>
 
       </div>
@@ -381,7 +384,7 @@ const MapWithASearchBox = compose(
           className="btn btn-info"
           onClick={props.recenter}
         >
-          Recenter
+          <i class="fas fa-map-pin fa-2x"></i>
         </button>
 
       </div>

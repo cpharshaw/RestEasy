@@ -79,15 +79,25 @@
 
 .clearMarkersBtn {
   position: fixed;
-  top: 50vh;
-  background: green;
+  top: 75vh;
+  left: 0;
+  margin-left: 10px;
+  /* margin-left: 10px; */
+  opacity: 0.8;
+  /* background: green; */
   
 }
 
 .recenterBtn {
   position: fixed;
-  top: 80vh;
-  background: red;
+  top: 75vh;
+  right: 0;
+  margin-right: 10px;
+  /* margin-left: 80%; */
+  /* margin-right: 10px; */
+  opacity: 0.8;
+  /* background: red; */
+
 }
 
 
