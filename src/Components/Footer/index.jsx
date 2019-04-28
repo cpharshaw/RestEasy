@@ -23,7 +23,9 @@ export class index extends Component {
 
           <div className="col-sm-2 offset-1 linkBox text-center">
             <Link className="" to='/MapWithASearchBox'>
+            <div className="w-1000 h-1000">
               <i className="fas fa-map fa-lg"></i>
+              </div>
             </Link>
           </div>
 
@@ -33,8 +35,11 @@ export class index extends Component {
             </Link>
           </div> */}
 
-          <div className="col-sm-2  linkBox text-center">
-            <img src="rest-easy-logo.png" alt="rest easy"/>
+          <div className="col-sm-2 text-center">
+            {/* <img src="rest-easy-logo.png" alt="rest easy"/> */}
+            <span id="footer-logo">
+                    r☆e
+                  </span>
           </div>
 
           {/* <div className="col-sm-2  linkBox text-center">
@@ -45,7 +50,9 @@ export class index extends Component {
 
           <div className="col-sm-2  linkBox text-center">
             <Link className="" to='/Settings'>
+            <div className="w-100 h-100">
               <i className="fas fa-bars  fa-lg"></i>
+              </div>
             </Link>
           </div>
 

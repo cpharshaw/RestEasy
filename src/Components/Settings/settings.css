@@ -1,10 +1,27 @@
-
-.jumbotron {
+.back {
     background-image: url("./bathroom-wallpaper.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    height: 100vh;
+}
+.jumbotron {
+    /* background-image: url("./bathroom-wallpaper.jpg"); */
+    
     /* background-color: transparent; */
+}
+
+.head {
+    height: 20vh;
+}
+
+#title {
+    color: whitesmoke;
+  font-weight: 900;
+  font-size: 12vw;
+  font-style: italic;
+  text-shadow: 1px 1px 22.5px #44aacc;
+  opacity: 0.925;
 }
 
 .user-image {
@@ -21,9 +38,20 @@
     padding: 0;
 }
 
-btn {
-    background-color: #44aacc;
+.btn-block {
+    background-color: white;
+    border-radius: 27.5px;
+    width: 70vw;
+    box-shadow: 1px 1px 22.5px #44aacc;
+    margin: 0 auto;
+    opacity: 0.8;
+    border: 0;
+    font-family: 'Alegreya Sans', sans-serif;
 
+}
+
+.btn-block:hover {
+    background-color: #44aacc;
 }
 
 .home-button {
@@ -33,5 +61,9 @@ btn {
 }
 
 #about-button {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.collapse {
+    margin: 0 auto;
 }
