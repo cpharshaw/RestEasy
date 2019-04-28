@@ -53,8 +53,6 @@
 
 
 
-
-
 .searchInput {
   position: relative;
   margin-top: 30px;
@@ -79,7 +77,7 @@
 
 .clearMarkersBtn {
   position: fixed;
-  top: 75vh;
+  top: 65vh;
   left: 0;
   margin-left: 10px;
   /* margin-left: 10px; */
@@ -90,7 +88,7 @@
 
 .recenterBtn {
   position: fixed;
-  top: 75vh;
+  top: 65vh;
   right: 0;
   margin-right: 10px;
   /* margin-left: 80%; */
