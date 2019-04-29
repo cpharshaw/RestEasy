@@ -22,6 +22,15 @@ text-shadow: 1px 1px 4px #a5edff;
 /* opacity: 0.925; */
 }
 
+  #footer-logo{
+  color: ghostwhite;
+  font-weight: 900;
+  font-size: 5.5vh;
+  font-style: italic;
+  text-shadow: 1px 1px 4px #a5edff;
+  /* opacity: 0.925; */
+  }
+
 .fas {
 color: whitesmoke;
 margin: 0 auto;
