@@ -26,3 +26,25 @@ body {
 }
 
 
+.mapDiv {
+  /* height: 50vh; */
+}
+
+
+p, 
+a, 
+span, 
+div, 
+h1,h2,h3,h4,h5,h6, 
+label, 
+input, 
+textarea,
+button,
+* {
+  font-family: 'Quicksand', sans-serif !important;
+  /* font-family: 'Rubik', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-family: 'M PLUS 1p', sans-serif; */
+}

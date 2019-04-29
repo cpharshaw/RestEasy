@@ -9,13 +9,10 @@
     margin: 0;
     padding: 0;
   } */
-
-
-
-.loadingElement {
-  height: 100%;
+.wholeMap {
+  /* position: relative;
+  z-index: 1; */
 }
-
 
 .containerElement {
   position: fixed;  
@@ -23,8 +20,10 @@
   left: 0;
   right: 0; 
 
-  height: 100%;
-  height: calc(100vh - 50px);
+  height: 92%;
+  min-height: calc(92% - 56px);
+  /* height: calc(100vh - 55px); */
+  /* height: 92vh; */
   /* z-index: 100; */
 } 
 
@@ -33,24 +32,88 @@
   height: 100%;
 }
 
+.loadingElement {
+  /* height: 100%; */
+}
+
+
+#searchclear {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  height: 14px;
+  margin: auto;
+  font-size: 14px;
+  cursor: pointer;
+  color: red;
+}
+
+
+/* <div className="loadingElement">Map is loading...</div> */
+
+
+
+
 
 .searchInput {
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
+  /* margin-top: 4.5vh; */
   opacity: .85;
   /* top: 0; */
   box-sizing: border-box;
   border: 1px solid transparent;
   width: 100%;
   height: 40px;
+  /* height: 5vh; */
   padding: 10px;
   /* margin-top: -27px; */
   /* padding: 0 12px; */
   border-radius: 11.5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 12.5px #44aacc;
   font-size: 16px;
   outline: none;
   text-overflow: ellipsis;
+}
+
+
+.clearMarkersBtn {
+  position: fixed;
+  top: 65vh;
+  left: 0;
+  margin-left: 10px;
+  /* margin-left: 10px; */
+  opacity: 0.8;
+  height: 45px;
+  width: 45px;
+  /* background: green; */
+  
+}
+
+.recenterBtn {
+  position: fixed;
+  top: 65vh;
+  right: 0;
+  margin-right: 10px;
+  /* margin-left: 80%; */
+  /* margin-right: 10px; */
+  opacity: 0.8;
+  height: 45px;
+  width: 45px;
+  /* background: red; */
+
+}
+
+.scoresDiv {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.customInfoBox {
+  width: 90vw;
+  height: 60vh;
+  /* background: red; */
 }
 
 /* .searchBox { */

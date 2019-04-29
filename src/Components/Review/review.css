@@ -1,29 +1,51 @@
 .reviewPage {
-  position: fixed;
-  top: 65px;
+  position: relative;
+  /* top: 0;
   left: 0;
-  right: 0; 
+  right: 0; */
+  /* margin-bottom: 60px; */
+  
+  /* height: fit-content; */
+  /* max-width: fit-content; */
+  /* height: calc(100vh - 50px); */
+  /* height: 100%; */
+  background: transparent;
+  
+}
 
-  height: calc(100vh - 130px);
-  height: 100%;
-  /* background: red; */
+.textAddress {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;  
+}
 
+label, p, .categoryLabel {
+  /* color: whitesmoke; */
+  font-weight: bold;
 }
 
 
-
-
 .h-fit-content {
-  height: fit-content;
+  /* height: fit-content; */
 }
 
 
 .mid {
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 
 textarea {
   border: 0.5px solid grey;
   padding: 5px;
+}
+
+.submitBtn {
+  background: #44aacc;
+  color: whitesmoke;
+}
+
+
+.star-rating__wrap, .starRating {
+  /* width: fit-content !important; */
 }
