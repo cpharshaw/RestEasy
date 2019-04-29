@@ -10,11 +10,13 @@ class Login extends Component {
 
   state = {};
 
-  render() {
+  render(props) {
 
+  
     return (
 
-
+      <Router>
+        {/* {console.log(this.props)} */}
         <div className="container login-body d-flex justify-content-center align-content-center">
 
 
@@ -58,20 +60,19 @@ class Login extends Component {
                 </div>
               </div>
 
-
               <div className="row mt-2">
                 <div className="col-sm-12 d-flex justify-content-center">
-                  <Link to="/MapWithASearchBox" >
-                    <button className="btn btn-primary login-button">
+                  {/* <Link to="/MapWithASearchBox" > */}
+                    <button className="btn btn-primary login-button" onClick={this.props.signInWithGoogle}>
                       <span className="button">
                         LOG IN WITH GOOGLE
                       </span>
                     </button>
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </div>
 
-              <div className="row mt-2">
+              {/* <div className="row mt-2">
                 <div className="col-sm-12 d-flex justify-content-center">
                   <Link to="/MapWithASearchBox" >
                     <button className="btn btn-info login-button">
@@ -81,7 +82,7 @@ class Login extends Component {
                     </button>
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               <div className="row mt-2">
                 <div className="col-sm-12 d-flex justify-content-center">
@@ -95,6 +96,8 @@ class Login extends Component {
 
 
         </div>
+
+        </Router>
     )
   }
 }

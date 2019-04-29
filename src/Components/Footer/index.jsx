@@ -3,14 +3,24 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 import './footer.css';
 import MapWithASearchBox from '../MapWithASearchBox';
-import Settings from '../Settings'
+import Settings from '../Settings';
+
+
 
 
 export class index extends Component {
   render() {
+
+    const {
+      user,
+      signOut,
+      signInWithGoogle,
+    } = this.props;
+
+
     return (
 
-  
+      <Router>
         <footer className="footer container-fluid linkBar d-flex">
 
           <div className="row d-flex flex-nowrap allLinks">
@@ -42,9 +52,9 @@ export class index extends Component {
 
           </div>
         </footer>
-
+      </Router>
     )
   }
 }
 
-export default index
+export default index;

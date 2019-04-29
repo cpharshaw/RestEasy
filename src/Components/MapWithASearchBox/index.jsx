@@ -348,7 +348,6 @@ const MapWithASearchBox = compose(
 
     </SearchBox>
 
-
     <GoogleMap
       ref={props.onMapMounted}
       defaultZoom={props.zoom}
@@ -465,7 +464,7 @@ const MapWithASearchBox = compose(
 
 
     </GoogleMap>
-    < Footer />
+    {/* < Footer /> */}
 
   </div>
 );
