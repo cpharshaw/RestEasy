@@ -113,6 +113,7 @@ export class Review extends Component {
                     <input id="locDesc" type="text" className="form-control p-1 rounded" placeholder="Near checkout counter" />
                   </div>
                 </form>
+                
               </div>
             </div>
 

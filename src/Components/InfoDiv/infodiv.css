@@ -1,0 +1,89 @@
+.infoDiv {
+  position: relative;
+  /* top: 0;
+  left: 0;
+  right: 0; */
+  /* margin-bottom: 60px; */
+  
+  /* height: fit-content; */
+  /* max-width: fit-content; */
+  /* height: calc(100vh - 50px); */
+  /* height: 100%; */
+  background: transparent;
+  
+}
+
+
+.bigger {
+  font-size: 30px;
+}
+
+.scoreCategory {
+  padding: 0 !important;
+}
+
+
+.fa-style {
+  /* margin: 0 auto; */
+  color: red;
+  font-weight: 900;
+  fill: red;
+  /* background: blue; */
+  /* border: 1px solid black; */
+  /* text-shadow: 3px 3px 10px red; */
+  /* background-color: blue; */
+}
+
+/* 4.5 - 5.0 */
+.score-excellent {
+  color: darkgreen;
+  /* text-shadow: 2.5px 2.5px 7px #44aacc; */
+}
+
+/* 3.75 - 4.5 */
+.score-good {
+  color: #92b558;
+  /* text-shadow: 2.5px 2.5px 7px #44aacc;   */
+}
+
+/* 2.75 - 3.75 */
+.score-ok {
+  color: gold;
+  /* text-shadow: 2.5px 2.5px 7px #44aacc;   */
+}
+
+/* 2.25 - 2.75 */
+.score-bad {
+  color: goldenrod;
+  /* text-shadow: 2.5px 2.5px 7px #44aacc;   */
+}
+
+/* 1.0 - 2.25 */
+.score-terrible {
+  color: lightcoral;
+  /* text-shadow: 2.5px 2.5px 7px #44aacc;   */
+}
+
+
+.photo {
+  height: 48px;
+  width: 48px;
+}
+
+.photoCol {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+hr {
+  margin: 6px !important;
+}
+
+.addReviewBtn {
+  /* color: darkgoldenrod;
+   */
+}
+
+.addReviewDiv {
+  /* height: 50%; */
+}

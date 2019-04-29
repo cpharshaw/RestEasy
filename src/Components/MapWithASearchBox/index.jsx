@@ -20,8 +20,8 @@ import './popup.css';
 import './loading.css';
 
 
-// import '../Review';
 
+import InfoDiv from '../../Components/InfoDiv';
 import Review from '../../Components/Review';
 
 import Footer from '../Footer';
@@ -172,7 +172,6 @@ const MapWithASearchBox = compose(
           }
         })
       })
-
     },
 
 
@@ -420,12 +419,11 @@ const MapWithASearchBox = compose(
               onCloseClick={props.onToggleOpen}
             >
               <div className="customInfoBox">
-                < Review
+                < InfoDiv
                   dataAddress={marker.placeObj.formatted_address}
                   dataPosition={marker.position}
                   dataName={marker.placeObj.name}
-                >
-                </ Review>
+                />
                 {console.log(marker.placeObj.formatted_address)}
               </div>
             </InfoWindow>
@@ -433,13 +431,7 @@ const MapWithASearchBox = compose(
         </Marker>
       )}
 
-                {/* < Review  
-                   key={}
-                   id={}
-                   className=""
-                    data-latlong={marker.position}
-                   data-address={}
-                />*/}
+   
 
 
       {demoLocations &&
@@ -454,12 +446,18 @@ const MapWithASearchBox = compose(
             {
               props.selectedPlace === ("custom" + i) &&
               <InfoWindow
-                onCloseClick={props.onToggleOpen}>
+                onCloseClick={props.onToggleOpen}
+              ><div>
+                <i className="fas fa-venus fa-lg"></i>
                 <div className="customInfoBox ">
-                  < Review />
+                  < InfoDiv 
+                    dataAddress="DUMMY Address"
+                    dataPosition="DUMMY Position"
+                    dataName="DUMMY Name"
+                  />
                   {/* <p className="">This is the best text ever</p> */}
                 </div>
-              </InfoWindow>
+              </div></InfoWindow>
             }
           </Marker>
         )
