@@ -76,31 +76,29 @@
 }
 
 
-.clearMarkersBtn {
+.clearMarkersBtnDiv {
   position: fixed;
-  top: 65vh;
-  left: 0;
-  margin-left: 10px;
-  /* margin-left: 10px; */
+  bottom: 11.25vh;
+  left: 34vw;
+
   opacity: 0.8;
-  height: 45px;
-  width: 45px;
-  /* background: green; */
-  
+  height: 52px;
+  width: 52px;  
 }
 
-.recenterBtn {
+.recenterBtnDiv {
   position: fixed;
-  top: 65vh;
-  right: 0;
-  margin-right: 10px;
-  /* margin-left: 80%; */
-  /* margin-right: 10px; */
-  opacity: 0.8;
-  height: 45px;
-  width: 45px;
-  /* background: red; */
+  bottom: 11.25vh;
+  right: 34vw;
 
+  opacity: 0.8;
+  height: 52px !important;
+  width: 52px !important;
+}
+
+.recenterBtn, .clearMarkersBtn {
+  height: 52px !important;
+  width: 52px !important;
 }
 
 .scoresDiv {

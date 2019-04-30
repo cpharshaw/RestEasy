@@ -91,23 +91,17 @@ export class Review extends Component {
 
     return (
 
-      <div className="container-fluid reviewPage">
-        <div className="row">
-          <div className="col-sm-12 mt-3">
 
+          <div className="mt-3">
 
             <div className="row">
-              <div className="col-sm-12">
+              <div className="col">
 
                 <form className="">
-                  {/* <div className="d-flex flex-column mb-3">
-                    <label className="">Location Name:</label>
-                    <input id="locName" type="text" className="form-control p-1 rounded" placeholder="Enter location Name" />
-                  </div> */}
-                  <div className="d-flex flex-column mb-1">
+                  {/* <div className="d-flex flex-column mb-1">
                     <h4>{this.props.dataName}</h4>
                     <h6 className="text textAddress">{this.props.dataAddress}</h6>
-                  </div>
+                  </div> */}
                   <div className="d-flex flex-column mb-1">
                     <label className="" >Location Description:</label>
                     <input id="locDesc" type="text" className="form-control p-1 rounded" placeholder="Near checkout counter" />
@@ -118,19 +112,19 @@ export class Review extends Component {
             </div>
 
 
-            <div className="row mt-1">
-              <div className="col-sm-12">
+            <div className="row mt-2">
+              <div className="col">
 
                 <div className="row">
 
-                  {/* <div className="col-sm-12 ml-1">
+                  {/* <div className="col ml-1">
                     <p className="">About Bathroom:</p>
                   </div> */}
 
-                  <div className="col-sm-12 ml-1">
+                  <div className="col">
 
                     <div className="row">
-                      <div className="col-sm-12">
+                      <div className="col">
                         <form>
                           <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customSwitch1" />
@@ -156,7 +150,7 @@ export class Review extends Component {
                     {/* <textarea className="w-100 mt-3 rounded border-1" rows="3" placeholder="Describe your experience and/or observations." /> */}
 
                     <div className="row mt-2">
-                      <div className="col-sm-12">
+                      <div className="col">
 
                         <div className="row flex-nowrap d-flex align-items-center">
                           <div className="col-sm-4 categoryLabel">Cleanliness:</div>
@@ -236,7 +230,7 @@ export class Review extends Component {
 
 
                     {/* <div className="row mt-3">
-                      <div className="col-sm-12">
+                      <div className="col">
 
                         <form>
                           <div className="form-group">
@@ -251,7 +245,7 @@ export class Review extends Component {
 
 
 
-                    <input className="btn submitBtn" type="submit" value="Submit" />
+                    <input className="d-flex align-self-baseline btn submitBtn" type="submit" value="Submit" />
 
                   </div>
                 </div>
@@ -260,10 +254,7 @@ export class Review extends Component {
 
 
             </div>
-          </div >
-
-        </div >
-      </div>
+  </div>
     )
   }
 }
