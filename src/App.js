@@ -15,6 +15,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
 
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const firebaseAppAuth = firebaseApp.auth();
@@ -22,9 +23,9 @@ const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
+
+
 class App extends Component {
-
-
   
   render() {
 
@@ -35,25 +36,26 @@ class App extends Component {
     } = this.props;
 
     return (
+      <Router>
+        <div className="App">
+          <header className="App-header">
 
-      <div className="App">
-        <header className="App-header">
-          {
-            user
-              ? < MainApp 
-                  signInWithGoogle={this.props.signInWithGoogle}
-                  signOut={this.props.signOut}
-                  user={this.props.user}
-                />
-              : < Login 
-                  signInWithGoogle={this.props.signInWithGoogle}
-                  signOut={this.props.signOut}
-                  user={this.props.user}
-                />
-          }
-        </header>
-      </div>
-
+            {
+              user
+                ? < MainApp 
+                    signInWithGoogle={this.props.signInWithGoogle}
+                    signOut={this.props.signOut}
+                    user={this.props.user}
+                  />
+                : < Login 
+                    signInWithGoogle={this.props.signInWithGoogle}
+                    signOut={this.props.signOut}
+                    user={this.props.user}
+                  />
+            }
+          </header>
+        </div>
+      </Router>
     )
   }
 }

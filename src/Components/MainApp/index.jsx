@@ -8,6 +8,8 @@ import './footer.css';
 
 
 export class MainApp extends Component {
+
+
   render(props) {
 
     const {
@@ -36,6 +38,7 @@ export class MainApp extends Component {
           signInWithGoogle={this.props.signInWithGoogle} 
           signOut={this.props.signOut} 
           user={this.props.user}
+          data={this.props}
         />
       );
     }
@@ -43,28 +46,11 @@ export class MainApp extends Component {
     return (
       <Router>
 
-        {/* {console.log(this.props)} */}
 
         <Route exact path="/" component={MapComp} />
         <Route path="/Settings" component={SettingsComp} />
         <Route path="/MapWithASearchBox" component={MapComp} />
-
-        {/* <Route
-          path='/'
-          render={(props) => <MapWithASearchBox {...props} signInWithGoogle={this.props.signInWithGoogle} signOut={this.props.signOut} user={this.props.user}/>}
-        />             
-
-        <Route
-          path='/Settings'
-          render={(props) => <Settings {...props} signInWithGoogle={this.props.signInWithGoogle} signOut={this.props.signOut} user={this.props.user}/>}
-        />
-
-        <Route
-          path='/MapWithASearchBox'
-          render={(props) => <MapWithASearchBox {...props} signInWithGoogle={this.props.signInWithGoogle} signOut={this.props.signOut} user={this.props.user}/>}
-        />         */}
-                  
-
+    
 
         <footer className="footer container-fluid linkBar d-flex">
 
