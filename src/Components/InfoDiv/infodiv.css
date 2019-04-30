@@ -94,5 +94,8 @@ hr {
 }
 
 .addReviewDiv {
-  /* height: 50%; */
+  position: fixed;
+  bottom: 11.5px;
+  left: 0;
+  right: 0;
 }

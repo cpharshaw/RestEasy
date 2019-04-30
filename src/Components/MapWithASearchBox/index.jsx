@@ -2,6 +2,8 @@
 
 
 import React, { Component } from 'react';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
 import * as _ from "lodash";
 import { compose, withProps, lifecycle, withStateHandlers, withHandlers, withState } from "recompose";
 import { FaAnchor } from "react-icons/fa";
@@ -20,7 +22,7 @@ import './popup.css';
 import './loading.css';
 
 
-
+import MarkerWindow from '../../Components/MarkerWindow';
 import InfoDiv from '../../Components/InfoDiv';
 import Review from '../../Components/Review';
 
@@ -179,8 +181,7 @@ const MapWithASearchBox = compose(
 
       const refs = {}
 
-      // if (navigator.geolocation) {
-      // navigator.geolocation.getCurrentPosition(position => {
+
       this.setState({
 
         bounds: null,
@@ -196,10 +197,6 @@ const MapWithASearchBox = compose(
 
         zoom: 15,
 
-        // center: {
-        //   lat: null,
-        //   lng: null
-        // },
 
         resultMarkers: [],
 
@@ -215,8 +212,6 @@ const MapWithASearchBox = compose(
           this.setState({
             bounds: refs.map.getBounds(),
             isOpen: !this.state.isOpen
-            // ,center: refs.map.getCenter
-            // ,center: new google.maps.LatLngBounds()
           })
 
         },
@@ -225,17 +220,13 @@ const MapWithASearchBox = compose(
           this.setState({
             markers: [],
             searchValue: ""
-            // bounds: refs.map.getBounds()
+
           })
         },
 
 
         recenter: () => {
 
-          // this.setState({
-          //   center: this.state.origLoc,
-          //   bounds: refs.map.getBounds()
-          // });
 
           navigator.geolocation.getCurrentPosition(position => {
             this.setState({
@@ -261,8 +252,6 @@ const MapWithASearchBox = compose(
 
         onPlacesChanged: () => {
 
-          // console.log(refs);
-
           this.setState({
             isOpen: !this.state.isOpen
           });
@@ -283,7 +272,6 @@ const MapWithASearchBox = compose(
           const nextMarkers = places.map(place => ({
             position: place.geometry.location,
             placeObj: place
-            // ,position: place.geometry.location
           }));
 
       
@@ -321,8 +309,8 @@ const MapWithASearchBox = compose(
 )(props =>
 
   <div className="wholeMap">
-  {/* {console.log(props)} */}
-
+  {console.log(props)}
+  
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -396,7 +384,6 @@ const MapWithASearchBox = compose(
       </div>
 
       {
-        // props.isMarkerShown &&
         <Marker
           position={props.origLoc}
           icon={{ url: myLocationIcon }}
@@ -418,12 +405,13 @@ const MapWithASearchBox = compose(
               onCloseClick={props.onToggleOpen}
             >
               <div className="customInfoBox">
-                < InfoDiv
+                < MarkerWindow
                   dataAddress={marker.placeObj.formatted_address}
                   dataPosition={marker.position}
                   dataName={marker.placeObj.name}
+                  data={props}
                 />
-                {console.log(marker.placeObj.formatted_address)}
+                {/* {console.log(marker.placeObj.formatted_address)} */}
               </div>
             </InfoWindow>
           }
@@ -442,17 +430,21 @@ const MapWithASearchBox = compose(
             animation={google.maps.Animation.DROP}
             icon={loc.icon}
           >
+          {/* {console.log(this.props)} */}
             {
               props.selectedPlace === ("custom" + i) &&
               <InfoWindow
                 onCloseClick={props.onToggleOpen}
               >
                 <div className="customInfoBox ">
-                  < InfoDiv 
+                <Router>
+                  < MarkerWindow 
                     dataAddress="DUMMY Address"
                     dataPosition="DUMMY Position"
                     dataName="DUMMY Name"
+                    data={props}
                   />
+                  </Router>
                 </div>
               </InfoWindow>
             }

@@ -2,29 +2,21 @@
 
 
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
 import './infodiv.css';
 
 
 
-export class index extends Component {
+export class InfoDiv extends Component {
   render(props) {
     return (
 
+
       
-
-      <div className="container-fluid infoDiv">
-        <div className="row">
-          <div className="col">
-
-
-            <div className="d-flex flex-column  flex-end mb-1">
-              <p className="h4 placeName">{this.props.dataName}</p>
-              <p className="h6 textAddress">{this.props.dataAddress}</p>
-            </div>
-
-            <hr />
-
+  
+          <div>
             <div className="scoresDiv row">
               <div className="col">
 
@@ -59,7 +51,7 @@ export class index extends Component {
                   <div className="col">
                     <h5 className="overall-avg text-center">
                       Photos
-                        </h5>
+                    </h5>
                   </div>
                 </div>
                 <div className="row">
@@ -82,7 +74,7 @@ export class index extends Component {
               </div>
             </div>
 
-            <hr />            
+            <hr />
 
             <div className="featuresDiv row">
               <div className="col">
@@ -118,23 +110,42 @@ export class index extends Component {
 
             <hr />
 
+        </div>
 
-            <div className="addReviewDiv row mt-2">
+    )
+  }
+}
+
+export default InfoDiv;
+
+
+
+    {/*<div className="container-fluid infoDiv">
+
+        <div className="row">
+          <div className="col">
+
+
+            <div className="d-flex flex-column  flex-end mb-1">
+              <p className="h4 placeName">{this.props.dataName}</p>
+              <p className="h6 textAddress">{this.props.dataAddress}</p>
+            </div>
+
+            <hr />*/}
+
+
+                    {/*
+            <div className="addReviewDiv row">
               <div className="col text-center">
-                {/* <Link to="/Review"> */}
-                <button className="addReviewBtn">
-                  <i className="fas fa-plus-circle text-center" style={{ color: "darkgoldenrod", fontSize: "37px" }}></i>
-                </button>
-                {/* </Link> */}
+                <Link to="/Review">
+                  <button className="addReviewBtn">
+                    <i className="fas fa-plus-circle text-center" style={{ color: "darkgoldenrod", fontSize: "37px" }}></i>
+                  </button>
+                </Link>
               </div>
             </div>
 
 
           </div>
         </div>
-      </div>
-    )
-  }
-}
-
-export default index
+         </div>*/}
