@@ -309,7 +309,7 @@ const MapWithASearchBox = compose(
 )(props =>
 
   <div className="wholeMap">
-  {console.log(props)}
+  {/* {console.log(props)} */}
   
     <SearchBox
       ref={props.onSearchBoxMounted}

@@ -86,6 +86,7 @@ export class Review extends Component {
     console.log(this.state.selectedFile)
   }
 
+
   render(props) {
     const { rating } = this.state
 
@@ -93,6 +94,8 @@ export class Review extends Component {
 
 
           <div className="mt-3">
+
+          {/* {console.log(this.props)} */}
 
             <div className="row">
               <div className="col">
@@ -254,7 +257,8 @@ export class Review extends Component {
 
 
             </div>
-  </div>
+            <hr />
+    </div>
     )
   }
 }
