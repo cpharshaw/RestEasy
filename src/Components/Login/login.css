@@ -3,7 +3,7 @@
 
 .login-body {
   overflow-y: hidden;
-
+  overflow-x: hidden;
 }
 
 .headline-box {
@@ -35,7 +35,7 @@
   /* color: red; */
   color: whitesmoke;
   font-weight: 900;
-  font-size: 21.5vw;
+  font-size: 13vh;
   font-style: italic;
   text-shadow: 1px 1px 22.5px #44aacc;
   opacity: 0.925;
@@ -45,7 +45,7 @@
 
 #tagline {
   color: whitesmoke;
-  font-size: 5.25vw;
+  font-size: 5.25vh;
   font-weight: bold;
   font-style: italic;
   text-shadow: 1px 1px 5.5px #44aacc;
@@ -135,19 +135,25 @@ Link {
 
 
 
-.login-button {
-  border-radius: 27.5px;
+/* .login-button { */
+  /* border-radius: 27.5px; */
   /* min-width: 275px; */
   /* max-width: 80%; */
   /* height: 50px !important; */
   /* height: auto; */
-  opacity: .925;
-  padding: 10px;
-  width: 75vw;
-  box-shadow: 1px 1px 22.5px whitesmoke;
-  /* box-shadow: 1px 2.5px 15px whitesmoke; */
-}  
+  /* opacity: .925; */
+  /* padding: 10px; */
+  /* width: 75vw; */
+  /* box-shadow: 1px 1px 22.5px whitesmoke; */
+  /* background-color: #44aacc; */
 
+  /* box-shadow: 1px 2.5px 15px whitesmoke; */
+/* }   */
+
+#google-login-image {
+  width: 200px;
+  height: 100%;
+}
 
 .button {
   font-size: 18px;
