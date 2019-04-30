@@ -55,11 +55,11 @@ export class MarkerWindow extends Component {
     let button = this.state.toggle 
       ?
         <button className="addReviewBtn">
-          <i className="fas fa-plus-circle text-center" style={{ color: "darkgoldenrod", fontSize: "37px" }} onClick={() => this.setState({ toggle: !this.state.toggle })}></i>
+          <i className="fas fa-arrow-left text-center" style={{ color: "darkgoldenrod", fontSize: "37px" }} onClick={() => this.setState({ toggle: !this.state.toggle })}></i>
         </button>
       :
         <button className="addReviewBtn">
-          <i className="fas fa-arrow-left text-center" style={{ color: "darkgoldenrod", fontSize: "37px" }} onClick={() => this.setState({ toggle: !this.state.toggle })}></i>
+          <i className="fas fa-plus-circle text-center" style={{ color: "darkgoldenrod", fontSize: "37px" }} onClick={() => this.setState({ toggle: !this.state.toggle })}></i>
         </button>;
 
     return (

@@ -352,8 +352,8 @@ const MapWithASearchBox = compose(
         // panControl: false,
         zoomControl: true,
         zoomControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_CENTER
-      },
+          position: google.maps.ControlPosition.RIGHT_BOTTOM
+        },
         // rotateControl: false,
         fullscreenControl: false,
         styles: MyStyle[0]
@@ -361,21 +361,21 @@ const MapWithASearchBox = compose(
       }}
     >
 
-      <div className="clearMarkersBtn">
+      <div className="clearMarkersBtnDiv">
 
         <button
-          className="btn btn-warning"
+          className="btn btn-warning clearMarkersBtn text-center"
           onClick={props.clearResults}
         >
           <i className="fas fa-eraser fa-2x"></i>
-      </button>
+        </button>
 
       </div>
 
-      <div className="recenterBtn">
+      <div className="recenterBtnDiv">
 
         <button
-          className="btn btn-info"
+          className="btn btn-info recenterBtn text-center"
           onClick={props.recenter}
         >
           <i className="fas fa-map-pin fa-2x"></i>
