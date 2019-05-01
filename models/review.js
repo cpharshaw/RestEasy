@@ -39,6 +39,9 @@ var reviewSchema = new Schema({
   name: {
     type: String
   },
+  latlng: {
+    type: String
+  },
   // actual review
   review_description: {
     type: String
@@ -56,6 +59,9 @@ var reviewSchema = new Schema({
     type: Number
   },
   review_style: {
+    type: Number
+  },
+  review_overall: {
     type: Number
   }
 

@@ -34,6 +34,7 @@ export class MarkerWindow extends Component {
           signInWithGoogle={this.props.firebase.signInWithGoogle}
           signOut={this.props.firebase.signOut}
           user={this.props.firebase.user}
+          formData={this.props}
         />
       );
     };
@@ -74,7 +75,7 @@ export class MarkerWindow extends Component {
               <p className="h6 textAddress">{this.props.formatted_address}</p>
             </div>
 
-            <hr />
+            <hr /> {console.log(this.props)}
 
             {content}
 

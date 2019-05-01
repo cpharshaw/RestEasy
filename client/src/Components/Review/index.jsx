@@ -22,6 +22,7 @@ export class Review extends Component {
       name: this.props.formData.name,
 
 
+      
       review_description: "",
 
       features_price: false,
@@ -29,14 +30,14 @@ export class Review extends Component {
 
       review_cleanliness: null,
       review_capacity: null,
-      review_style: null
-
+      review_style: null,
+      review_overall: null
     }
   // }
 
-  // componentDidMount() {
-  //   this.loadBooks();
-  // }
+  componentDidMount() {
+    this.loadReviews();
+  }
 
   // loadBooks = () => {
   //   API.getBooks()
@@ -46,27 +47,34 @@ export class Review extends Component {
   //     .catch(err => console.log(err));
   // };
 
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
 
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
+
+
+
+  loadReviews = () => {
+    API.getReviews()
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
 
   handleFormSubmit = event => {
     console.log(this.state);
     event.preventDefault();
     // if (this.state.user && this.state.id && this.state.review_cleanliness) {
       API.saveReview({
-        data: this.state 
+        data: {
+          review_cleanliness: parseInt(this.state.review_cleanliness),
+          review_capacity: parseInt(this.state.review_capacity),
+          review_style: parseInt(this.state.review_style),
+          review_overall: (parseInt(this.state.review_style) + parseInt(this.state.review_capacity) + parseInt(this.state.review_cleanliness)) / 3,
+          ...this.state
+        }
       })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        this.loadReviews()
+      })
       .catch(err => console.log(err))
         // .then(res => this.loadBooks())
         // .catch(err => console.log(err));
