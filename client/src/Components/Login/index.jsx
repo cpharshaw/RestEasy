@@ -56,13 +56,13 @@ class Login extends Component {
 
               <div className="row mt-2">
                 <div className="col-sm-12 d-flex justify-content-center">
-                <span><img id="google-login-image" src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"  alt="google" onClick={this.props.signInWithGoogle}></img></span>
+                {/* <span><img id="google-login-image" src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"  alt="google" onClick={this.props.signInWithGoogle}></span></span> */}
                   {/* <Link to="/MapWithASearchBox" > */}
-                    {/* <button className="btn btn-primary login-button" onClick={this.props.signInWithGoogle}>
+                    <button className="btn btn-primary login-button" onClick={this.props.signInWithGoogle}>
                       <span className="button">
                         LOG IN WITH GOOGLE
                       </span>
-                    </button> */}
+                    </button>
                   {/* </Link> */}
                 </div>
               </div>

@@ -71,7 +71,10 @@ export class Review extends Component {
           ...this.state
         }
       })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        this.loadReviews()
+      })
       .catch(err => console.log(err))
         // .then(res => this.loadBooks())
         // .catch(err => console.log(err));

@@ -28,8 +28,10 @@ import Review from '../../Components/Review';
 
 import Footer from '../Footer';
 
-import Spinner  from 'react-bootstrap/Spinner';
+import Spinner from 'react-bootstrap/Spinner';
 import { MARKER } from 'react-google-maps/lib/constants';
+
+import API from "../../utils/API";
 
 
 // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png';
@@ -142,13 +144,13 @@ const demoLocations = [
     icon: {
       url: good
     }
-  } 
-] ;
+  }
+];
 
 const MapWithASearchBox = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYS3YTeyILl2Cr7ajZ0ZdKbO092cW6lw&v=3.exp&libraries=geometry,drawing,places,markers",
-    loadingElement: <div className="loader">Loading....</div>,    
+    loadingElement: <div className="loader">Loading....</div>,
     containerElement: <div className="containerElement" />,
     mapElement: <div className="mapElement" />,
   }),
@@ -175,10 +177,23 @@ const MapWithASearchBox = compose(
           }
         })
       })
+
     },
 
 
     componentDidMount() {
+
+      API.getReviews()
+      .then(res => {
+        // console.log(res.data);
+        this.setState({
+          reviewMarkers: res.data
+        })
+        // console.log(this.state.reviewMarkers);
+
+      
+      })
+      .catch(err => console.log(err));
 
       const refs = {}
 
@@ -202,6 +217,7 @@ const MapWithASearchBox = compose(
 
         resultMarkers: [],
 
+        reviewMarkers: [],
 
         markers: [],
 
@@ -215,7 +231,6 @@ const MapWithASearchBox = compose(
             bounds: refs.map.getBounds(),
             isOpen: !this.state.isOpen
           })
-
         },
 
         clearResults: () => {
@@ -227,8 +242,6 @@ const MapWithASearchBox = compose(
 
 
         recenter: () => {
-
-
           navigator.geolocation.getCurrentPosition(position => {
             this.setState({
               center: {
@@ -241,8 +254,6 @@ const MapWithASearchBox = compose(
               }
             })
           })
-
-
         },
 
 
@@ -260,6 +271,7 @@ const MapWithASearchBox = compose(
           const places = refs.searchBox.getPlaces();
           const bounds = new google.maps.LatLngBounds();
 
+
           places.forEach(place => {
             // {console.log(place)}
             if (place.geometry.viewport) {
@@ -267,7 +279,6 @@ const MapWithASearchBox = compose(
             } else {
               bounds.extend(place.geometry.location)
             }
-
           });
 
           const nextMarkers = places.map(place => ({
@@ -276,7 +287,7 @@ const MapWithASearchBox = compose(
             user: this.state.user
           }));
 
-      
+
 
           const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
 
@@ -304,16 +315,15 @@ const MapWithASearchBox = compose(
       onToggleOpen: ({ updateSelectedPlace }) => key => {
         updateSelectedPlace(key);
       }
-
     }
 
   })
 )(props =>
 
   <div className="wholeMap">
-  {/* {console.log(props)} */}
-  
-  
+    {/* {console.log(props)} */}
+
+
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
@@ -403,11 +413,11 @@ const MapWithASearchBox = compose(
         >
           {
             props.selectedPlace === i &&
-            <InfoWindow 
+            <InfoWindow
               onCloseClick={props.onToggleOpen}
             >
               <div className="customInfoBox">
-              {/* {console.log(marker.placeObj)} */}
+                {/* {console.log(marker.placeObj)} */}
                 < MarkerWindow
                   userId={marker.user.uid}
                   id={marker.placeObj.id}
@@ -417,6 +427,7 @@ const MapWithASearchBox = compose(
                   types={marker.placeObj.types}
                   name={marker.placeObj.name}
                   firebase={props}
+                  
                 />
               </div>
             </InfoWindow>
@@ -424,41 +435,71 @@ const MapWithASearchBox = compose(
         </Marker>
       )}
 
-   
 
 
-      {demoLocations && demoLocations.map((loc, i) =>
-          <Marker
-            onClick={() => { props.onToggleOpen("custom" + i) }}
-            key={"custom" + i}
-            position={loc.position}
-            animation={google.maps.Animation.DROP}
-            icon={loc.icon}
-          >
-            {
-              props.selectedPlace === ("custom" + i) &&
-              <InfoWindow
-                onCloseClick={props.onToggleOpen}
-              >
-                <div className="customInfoBox ">
-                {/* <Router> */}
-                  < MarkerWindow 
-                    user="DUMMY USER"
-                    id="DUMMY ID"
-                    place_id="DUMMY PLACE_ID"
-                    formatted_address="DUMMY FORMATTED_ADDRESS"
-                    position="DUMMY POSITION"
-                    types="DUMMY TYPES"
-                    name="DUMMY NAME"
-                    firebase={props}
-                  />
-                  {/* </Router> */}
-                </div>
-              </InfoWindow>
-            }
-          </Marker>
-        )
-      }
+
+      {/* {demoLocations && demoLocations.map((loc, i) =>
+        <Marker
+          onClick={() => { props.onToggleOpen("custom" + i) }}
+          key={"custom" + i}
+          position={loc.position}
+          animation={google.maps.Animation.DROP}
+          icon={loc.icon}
+        >
+          {
+            props.selectedPlace === ("custom" + i) &&
+            <InfoWindow
+              onCloseClick={props.onToggleOpen}
+            >
+              <div className="customInfoBox ">
+                < MarkerWindow
+                  user="DUMMY USER"
+                  id="DUMMY ID"
+                  place_id="DUMMY PLACE_ID"
+                  formatted_address="DUMMY FORMATTED_ADDRESS"
+                  position="DUMMY POSITION"
+                  types="DUMMY TYPES"
+                  name="DUMMY NAME"
+                  firebase={props}
+                />
+              </div>
+            </InfoWindow>
+          }
+        </Marker> 
+      )} */}
+
+      {props.reviewMarkers && props.reviewMarkers.map((loc, i) =>
+      
+        <Marker
+          onClick={() => { props.onToggleOpen("custom" + i) }}
+          key={"custom" + i}
+          position={JSON.parse(loc._id.position)}
+          animation={google.maps.Animation.DROP}
+          icon={loc.avgOverall > 3.5 ? good : bad}
+        >
+          {
+            props.selectedPlace === ("custom" + i) &&
+            <InfoWindow
+              onCloseClick={props.onToggleOpen}
+            >
+              <div className="customInfoBox ">
+
+                < MarkerWindow
+                  user="default"
+                  id={loc._id.id}
+                  place_id={loc._id.place_id}
+                  formatted_address={loc._id.formatted_address}
+                  position={JSON.parse(loc._id.position)}
+                  types={loc._id.types}
+                  name={loc._id.name}
+                  firebase={props}
+                  ratings= {{"count": loc.count, "avgOverall": loc.avgOverall, "avgClean": loc.avgClean, "avgCap": loc.avgCap, "avgStyle": loc.avgStyle}}
+                />
+              </div>
+            </InfoWindow>
+          }
+        </Marker> 
+      )}      
 
 
     </GoogleMap>

@@ -7,7 +7,7 @@ router.use(express.json());
 // Defining methods for the reviewsController
 module.exports = {
   findAll: function(req, res) {
-    console.log(req.query);
+    // console.log(req.query);
       
     // db.Review.find({})
       // .sort({ date: -1 })
@@ -17,9 +17,13 @@ module.exports = {
             _id: {
               place_id: "$place_id",
               position: "$position",
+              id: "$id",
+              formatted_address: "$formatted_address",
+              types: "$types",
+              name: "$name",
               avgOverall: "$avgOverall"
             },
-            // position: "position",
+            count: {$sum: 1},
             avgClean: {$avg: "$review_cleanliness"},
             avgCap: {$avg: "$review_capacity"},
             avgStyle: {$avg: "$review_style"},
@@ -27,18 +31,13 @@ module.exports = {
           },
        }
       ])
-      .then(dbModel => console.log(dbModel))
+      .then(dbModel => {
+        console.log(dbModel);
+        res.send(dbModel);
+      })
       // .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findAllAggregate: function(req, res) {
-    console.log(req.query);
-    // db.Review
-    //   .find(req.query)
-    //   .sort({ date: -1 })
-    //   .then(dbModel => res.json(dbModel))
-    //   .catch(err => res.status(422).json(err));
-  },  
   findById: function(req, res) {
     db.Review
       .findById(req.params.id)
